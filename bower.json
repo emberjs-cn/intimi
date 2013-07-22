@@ -4,6 +4,7 @@
   "dependencies": {
     "jquery": "~1.9.1",
     "handlebars": "1.0.0-rc.4",
+    "font-awesome": "3.2.1",
     "ember": "1.0.0-rc.6",
     "ember-data-shim": "~0.0.13",
     "ember-inkylike": ">= 0.0.1",
