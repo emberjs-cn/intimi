@@ -3,13 +3,13 @@
   "version": "0.1.0",
   "dependencies": {
     "jquery": "~1.9.1",
-    "handlebars": "1.0.0-rc.4",
     "font-awesome": "3.2.1",
+    "bootstrap-sass": "~2.3.1",
+    "moment": "2.1.0",
+    "handlebars": "1.0.0-rc.4",
     "ember": "1.0.0-rc.6",
     "ember-data-shim": "~0.0.13",
-    "ember-inkylike": ">= 0.0.1",
-    "bootstrap-sass": "~2.3.1",
-    "moment": "2.1.0"
+    "ember-inkylike": "git@gitlab.menglifang.org:base/ember-inkylike.git"
   },
   "devDependencies": {
     "ember-mocha-adapter": "0.1.1"
