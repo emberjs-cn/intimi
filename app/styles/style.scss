@@ -5,6 +5,10 @@ $FontAwesomePath: "./fonts";
 
 @import 'contacts';
 
+a:hover {
+  text-decoration: none;
+}
+
 .inkylike-toolbar {
   ul {
     margin: 0;
@@ -36,6 +40,17 @@ $FontAwesomePath: "./fonts";
     float: left;
     width: 400px;
     background-color: #F2F2F2;
+    a {
+      color: #333333;
+      &:hover {
+        color: #333333;
+      }
+    }
+    a.active > div {
+      background-color: #1870B8;
+      color: white;
+      span { color: white !important; }
+    }
   }
   .right {
     overflow: hidden;
