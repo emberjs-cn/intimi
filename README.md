@@ -10,24 +10,30 @@ Intimi作为一个Ember.js的示例应用而诞生，主要提供基于短信、
 
 #### 环境搭建
 
+1. 安装工具
+
+  ```bash
+  npm install -g bower grunt-cli
+  ```
+
 1. 安装依赖
 
-```bash
-# 安装grunt依赖
-npm install
+  ```bash
+  # 安装grunt依赖
+  npm install
 
-# 安装bower依赖
-bower install
-```
+  # 安装bower依赖
+  bower install
+  ```
 
-2. 运行测试
+1. 运行测试
 
-```bash
-grunt test
-```
+  ```bash
+  grunt test
+  ```
 
-3. 启动服务
+1. 启动服务
 
-```bash
-grunt server
-```
+  ```bash
+  grunt server
+  ```
