@@ -5,12 +5,12 @@ should = chai.should()
 chai.Assertion.includeStack = true
 
 Ember.testing = true
-App.rootElement = "#ember-testing"
+Intimi.rootElement = "#ember-testing"
 Ember.Test.adapter = Ember.Test.MochaAdapter.create()
 
-App.setupForTesting()
-App.injectTestHelpers()
-Ember.run(App, App.advanceReadiness)
+Intimi.setupForTesting()
+Intimi.injectTestHelpers()
+Ember.run(Intimi, Intimi.advanceReadiness)
 
 window.start = ->
 window.stop = ->
