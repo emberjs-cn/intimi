@@ -4,24 +4,7 @@
   </ul>
 </div>
 <div class="content">
-
-  <div {{bindAttr class=":new-message-popup editingMessage::hide"}}>
-    <form {{action createMessage on="submit"}}>
-      <div class="new-message-popup-header">发送即时通知</div>
-      <div>
-          {{input value=newMessageReceiver type='text' placeholder='收件人'}}
-      </div>
-      <div>
-          {{textarea value=newMessageContent placeholder='通知内容' rows=8}}
-      </div>
-      <div class="new-message-popup-footer">
-        {{input type='submit' placeholder='收件人' value='发送' class='btn'}}
-        {{input checked=newMessageSurvey type='checkbox' id='new-message-reply'}}
-        <label for="new-message-reply">需回复</label>
-      </div>
-    </form>
-  </div>
-
+  {{ render "new_message"}}
   <div class="left">
     <ul class="contacts">
       {{#each model}}
