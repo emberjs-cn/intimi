@@ -6,7 +6,7 @@
 <div class="content">
 
   <div {{bindAttr class=":new-message-popup editingMessage::hide"}}>
-    <form>
+    <form {{action createMessage on="submit"}}>
       <div class="new-message-popup-header">发送即时通知</div>
       <div>
           {{input value=newMessageReceiver type='text' placeholder='收件人'}}
@@ -16,7 +16,7 @@
       </div>
       <div class="new-message-popup-footer">
         {{input type='submit' placeholder='收件人' value='发送' class='btn'}}
-        {{input type='checkbox' id='new-message-reply'}}
+        {{input checked=newMessageSurvey type='checkbox' id='new-message-reply'}}
         <label for="new-message-reply">需回复</label>
       </div>
     </form>
