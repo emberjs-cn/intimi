@@ -7,8 +7,8 @@
     "bootstrap-sass": "~2.3.1",
     "moment": "2.1.0",
     "handlebars": "1.0.0-rc.4",
-    "ember": "1.0.0-rc.6",
-    "ember-data-shim": "~0.0.13",
+    "ember": "https://github.com/emberjs-cn/ember.git#1.0.0-rc.6.1",
+    "ember-data-shim": "https://github.com/emberjs-cn/ember-data.git#0.0.13-1",
     "ember-inkylike": "git@gitlab.menglifang.org:base/ember-inkylike.git"
   },
   "devDependencies": {
