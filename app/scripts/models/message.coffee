@@ -7,3 +7,14 @@ Intimi.Message = DS.Model.extend
 
   sender: DS.belongsTo('Intimi.Sender')
   receiver: DS.belongsTo('Intimi.Receiver')
+
+  didCreate: ->
+    # FIXME Create it if not exist
+    contact = Intimi.Contact.find(number: @get('sender.number'))
+    contact.incrementProperty('messagesCount')
+    contact.set('latestMessage', this)
+
+    # TODO Depends on direction?
+    #contact.incrementProperty('notRepliedCount')
+
+    contact.save()

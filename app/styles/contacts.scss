@@ -1,4 +1,13 @@
 .content {
+  .new-message-popup {
+    z-index: 99;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+  }
+
   .left ul.contacts {
     list-style-type: none;
     margin: 0;
