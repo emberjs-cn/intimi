@@ -1,7 +1,7 @@
 describe "Index page", ->
   it "displays a welcome message", ->
     visit('/').then ->
-      find('.logo').text().should.equal 'Intimi'
+      find('.logo').text().should.equal 'Intimi',
 
 #describe "IndexRoute", ->
   #describe "model property", ->
