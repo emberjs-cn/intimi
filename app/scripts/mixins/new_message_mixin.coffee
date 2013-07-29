@@ -1,5 +1,5 @@
-Intimi.NewMessageController = Ember.Controller.extend
-  editingMessage: false
+Intimi.NewMessageMixin = Ember.Mixin.create
+  newMessagePopupVisible: false
 
   createMessage: ->
     # FIXME Handle relations
@@ -13,3 +13,4 @@ Intimi.NewMessageController = Ember.Controller.extend
 
     @setProperties(editingMessage: false, newMessageReceiver: '', newMessageContent: '', newMessageSurvey: false)
     message.save()
+
