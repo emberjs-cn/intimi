@@ -1,2 +1,1 @@
-Intimi.IndexRoute = Ember.Route.extend
-  model: -> Intimi.Sender.find(1)
+Intimi.ContactsRoute = Ember.Route.extend()

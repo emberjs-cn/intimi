@@ -1,4 +1,4 @@
-Intimi.IndexController = Ember.ObjectController.extend
+Intimi.SenderController = Ember.ObjectController.extend
   activeMessageServer: ->
     model = @get('model')
     model.set('messageServer', true)

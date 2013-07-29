@@ -1,8 +1,8 @@
 {{#if model.messageServer}}
   {{#if model.needRecharge}}
-    你的账户余额为{{model.balance}}元, <a {{action recharge}}>充值</a>
+    你的账户余额只有{{model.balance}}元, 是否<a {{action recharge}}>立即充值</a>
   {{else}}
-    你的账户余额为{{model.balance}}元
+    你的账户余额为{{model.balance}}元。
   {{/if}}
 {{else}}
   抱歉! 您还未开通即时通知服务, 开通后即可使用短信、彩信与您的好友取得联系。是否现在<a {{action activeMessageServer}}>开通服务</a>
