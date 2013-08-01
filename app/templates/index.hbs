@@ -1,11 +1,11 @@
-<div class="alert">
-  {{#if currentUser.mobileAccount.notificationService}}
+<div class="alert center">
+  {{#if currentUser.mobileAccount}}
     {{#if currentUser.mobileAccount.needRecharge}}
       你的账户余额只有{{currentUser.mobileAccount.balance}}元, 是否<a {{action recharge}}>立即充值</a>
     {{else}}
       你的账户余额为{{currentUser.mobileAccount.balance}}元。
     {{/if}}
   {{else}}
-    抱歉! 您还未开通即时通知服务, 开通后即可使用短信、彩信与您的好友取得联系。是否现在<a {{action activeNotificationService}}>开通服务</a>
+    抱歉! 您还未开通即时通知服务, 开通后即可使用短信、彩信与您的好友取得联系。是否现在<a {{action enableNotificationService}}>开通服务</a>
   {{/if}}
 </div>

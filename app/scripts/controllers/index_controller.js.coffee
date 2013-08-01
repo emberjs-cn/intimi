@@ -1,10 +1,12 @@
 Intimi.IndexController = Ember.ObjectController.extend
   currentUser: (->
-    Intimi.Sender.find(1)
+    Intimi.User.find(1)
   ).property()
 
-  activeNotificationService: ->
-    @set('currentUser.mobileAccount.notificationService', true)
+  enableNotificationService: ->
+    mobileAccount = Intimi.MobileAccount.createRecord()
+    mobileAccount.save()
+    @set('currentUser.mobileAccount', mobileAccount)
 
   recharge: ->
     @set('currentUser.mobileAccount.balance', 1000)
