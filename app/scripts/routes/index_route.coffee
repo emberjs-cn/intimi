@@ -1,1 +1,1 @@
-Intimi.ContactsRoute = Ember.Route.extend()
+Intimi.IndexRoute = Ember.Route.extend()
