@@ -1,6 +1,9 @@
+quotepath = false
+
 node_modules
 temp
 dist
 .sass-cache
 .tmp
+.idea/*/*.*
 app/bower_components
