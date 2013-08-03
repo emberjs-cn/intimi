@@ -1,0 +1,189 @@
+@import "compass/layout/stretching"
+@import "compass/css3"
+
+$b: #1a4d7a
+$b-: #1c578f
+$b--:#237ac6
+$b---: rgba(35, 122, 198, 0.45)
+$b----: rgba(37, 143, 223, 0.44)
+$b-----: rgba(37, 143, 223, 0.29)
+$h--: #a8a8a8
+$h---: #dedede
+$h----: #efefef
+$g--: #468847
+$g---: #51a351
+$g----: #dff0d8
+
+body
+  background: #fff
+
+
+.content
+  .right
+
+    //+opacity(.1)
+    .handle
+      width: 100%
+      height: 25%
+
+      >div
+        float: left
+      .side
+        height: 100%
+        width: 10%
+        text-align: center
+        padding-top: 18%
+        color: $b--
+      .content
+        width: 70%
+        padding: 4%
+        margin-top: 3%
+        border-left: 1px solid $h----
+        border-right: 1px solid $h----
+
+        //+background(linear-gradient(top, $h----, #fff))
+        .buton
+          +stretch-y(35%)
+
+    .history
+      box-shadow: 0 0 10px rgba(0, 0, 0, .9),0 3px 7px rgba(0, 0, 0, 0.3),inset 0 1px rgba(255,255,255,1),inset 0 -3px 2px rgba(0,0,0,0.25)
+      height: 75%
+      background:  #fff
+      header
+        color: $h--
+        text-align: center
+        padding: 1%
+      .centent
+        height: 45%
+        overflow-y: auto
+        ul
+          li
+            padding: 10px 80px
+            list-style-type: none
+            .badge
+              +border-radius(0)
+              padding: 10px
+      footer
+        +background(linear-gradient(top, $b--,$b-))
+        padding: 4%
+        input
+          color: #fff
+          height: 30px
+        input[type="text"]
+          width: 250%
+          +border-radius(0%)
+          background: $h----
+          color: $b-
+          border: 1px solid $b
+        button
+          color: #fff
+          height: 40px
+          background: $b---
+          border: 1px solid $b--
+
+
+  .left
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.3),0 3px 7px rgba(0, 0, 0, 0.3),inset 0 1px rgba(255,255,255,1),inset 0 -3px 2px rgba(0,0,0,0.25)
+    width: 500px
+    ul
+      li
+        border-top: 5px $g--- solid
+        +background(linear-gradient(top, $h----, #fff))
+        h3
+          background: none !important
+          border-bottom-color: 2px $h-- solid !important
+      .active
+        border-top-color: #ff6e0c
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.74),0 0 1px rgba(0, 0, 0, 0.3),inset 0 1px rgba(255,255,255,1),inset 0 0px 1px rgba(0,0,0,0.25)
+        a.active > div
+          background: none !important
+          span.message
+            color: #000000 !important
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.inkylike-sidebar
+  box-shadow: 0 0 30px rgba(0, 0, 0, .9),0 3px 7px rgba(0, 0, 0, 0.3),inset 0 1px rgba(255,255,255,1),inset 0 -3px 2px rgba(0,0,0,0.25)
+  @include background(linear-gradient(top, $b--, $b-))
+  #logo
+    background: $b--
+    //@include background(linear-gradient(top, $b-----, $b-----))
+    //box-shadow: 0 0 1px rgba(0, 0, 0, 0.3),0 3px 7px rgba(0, 0, 0, 0.3),inset 0 1px rgba(255,255,255,1),inset 0 -3px 2px rgba(0,0,0,0.25)
+    &:hover
+      .switch-button
+        background: none
+        border: none
+    .switch-button
+      &:hover
+        background: none
+        border: none
+
+  #navigator
+    .menu-items
+      ul
+        li
+          &:hover
+            background: lighten($b-, 20%) !important
+          .icon
+            border: 3px solid $b- !important
+    .menu-triggers
+      background: $b-
+      li
+        background: none !important
+        border: 1px $b- solid
+        &:hover
+          background: lighten($b-, 20%) !important
+  #starter
+    background: $b-
+    a
+      background: $b-
+      border: 2px #fff solid
+      color: #fff
+      &:hover
+        background: lighten($b-, 20%) !important
+
+.btn
+  +border-radius(0%)
+
+.badge
+  background: $b-----
+  border: 1px solid $b----
+  color: $b--
+  small
+    color: $h--
+    font-size: 10px
+    font-weight: lighter
+    padding: 4px
+
+.badge-warning
+  background: $g----
+  //+background(linear-gradient(top, $g---, $g--))
+  border: 1px solid $g--
+  color: $g---
+
+.dropdown-menu
+  background: #1c578f
+  a
+    border: none !important
+
+.label
+  +border-radius(1px)
+
+hr
+  margin: 5px 0
+
