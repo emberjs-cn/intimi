@@ -3,4 +3,13 @@ Intimi.NewMessagePopupView = Ember.View.extend
   classNames: ['new-message-popup']
 
   didInsertElement: ->
-    @$('.popup-receiver input').focus()
+    @$('.popup-receivers input').focus()
+
+  submit: ->
+    @get('controller').send('createMessage', @get('receivers'), @get('content'), @get('survey'))
+
+    @setProperties
+      receivers: ''
+      content: ''
+      survey: false
+      'controller.newMessagePopupVisible': false

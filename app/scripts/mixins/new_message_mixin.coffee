@@ -1,16 +1,16 @@
 Intimi.NewMessageMixin = Ember.Mixin.create
   newMessagePopupVisible: false
 
-  createMessage: ->
-    # FIXME Handle relations
-    # receiver = Intimi.Receiver.find(number: @get('messageNumber'))
-    message = Intimi.Message.createRecord({
-      content: @get('newMessageContent')
-      survey: @get('newMessageSurvey')
-      #receiver: receiver
-      #sender: currentUser
-    })
+  createMessage: (receivers, content, survey = false) ->
+    receivers = [] # FIXME Find receivers
 
-    @setProperties(editingMessage: false, newMessageReceiver: '', newMessageContent: '', newMessageSurvey: false)
-    message.save()
+    receivers.forEach (receiver) ->
+      message = Intimi.Message.createRecord({
+        content: content
+        survey: survey
+        receiver: receiver
+        # sender: currentUser # FIXME get currentUser
+      })
+
+      message.save()
 

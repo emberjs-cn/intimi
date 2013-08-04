@@ -1,19 +1,19 @@
-<form {{action createMessage on="submit"}}>
+<form>
   <div class="popup-header">发送即时通知</div>
 
-  <div class="popup-receiver">
-    {{input value=newMessageReceiver class='input-plain' placeholder='收件人'}}
+  <div class="popup-receivers">
+    {{input value=view.receivers class='input-plain' placeholder='收件人'}}
   </div>
 
   <div class="popup-content">
-    {{textarea value=newMessageContent class='input-plain' placeholder='通知内容' rows=8}}
+    {{textarea value=view.content class='input-plain' placeholder='通知内容' rows=8}}
   </div>
 
   <div class="popup-footer">
     <button type="submit" class="btn">发送</button>
 
     <label class="checkbox inline" for="new-message-reply">
-      {{input checked=newMessageSurvey type='checkbox' id='new-message-reply'}}
+      {{input checked=view.survey type='checkbox' id='new-message-reply'}}
       需回复
     </label>
   </div>
