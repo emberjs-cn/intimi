@@ -1,7 +1,7 @@
 <div class="alert center">
   {{#if currentUser.mobileAccount}}
     {{#if currentUser.mobileAccount.needRecharge}}
-      你的账户余额只有{{currentUser.mobileAccount.balance}}元, 是否<a {{action 'recharge'}}>立即充值</a>
+      你的账户余额只有{{currentUser.mobileAccount.balance}}元, 是否<a href="https://mapi.alipay.com/gateway.do?service=trade_create_by_buyer&_input_charset=utf-8&partner=2088302884967445&seller_email=123924971%40qq.com&payment_type=1&out_trade_no=11223322334422&subject=weweqweqe&logistics_type=POST&logistics_fee=0&logistics_payment=BUYER_PAY&price=0.01&quantity=1&return_url=localhost%3A9000&sign_type=MD5&sign=76dea8f29caf82230549328c4a673ddc">立即充值</a>
     {{else}}
       你的账户余额为{{currentUser.mobileAccount.balance}}元。
     {{/if}}
