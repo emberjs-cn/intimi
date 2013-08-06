@@ -5,5 +5,5 @@ temp
 dist
 .sass-cache
 .tmp
-.idea/*/*.*
+.idea/
 app/bower_components
