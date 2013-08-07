@@ -25,7 +25,7 @@ module.exports = function (grunt) {
         yeoman: yeomanConfig,
         watch: {
             emberTemplates: {
-                files: '<%= yeoman.app %>/templates/**/*.hbs',
+                files: '<%= yeoman.app %>/templates/{,*/}*.hbs',
                 tasks: ['emberTemplates', 'livereload']
             },
             coffee: {
