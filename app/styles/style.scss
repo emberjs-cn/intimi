@@ -6,6 +6,7 @@ $FontAwesomePath: "./fonts";
 @import 'contacts';
 @import 'new_message_popup';
 
+
 a:hover {
   text-decoration: none;
 }
@@ -58,3 +59,4 @@ a:hover {
     height: 100%;
   }
 }
+@import 'expand';

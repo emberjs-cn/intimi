@@ -25,7 +25,7 @@ module.exports = function (grunt) {
         yeoman: yeomanConfig,
         watch: {
             emberTemplates: {
-                files: '<%= yeoman.app %>/templates/**/*.hbs',
+                files: '<%= yeoman.app %>/templates/{,*/}*.hbs',
                 tasks: ['emberTemplates', 'livereload']
             },
             coffee: {
@@ -46,7 +46,7 @@ module.exports = function (grunt) {
             },
             livereload: {
                 files: [
-                    '<%= yeoman.app %>/*.html',
+                    '<%= yeoman.app %>/*/*.html',
                     '{.tmp,<%= yeoman.app %>}/styles/{,*/}*.css',
                     '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
                 ],

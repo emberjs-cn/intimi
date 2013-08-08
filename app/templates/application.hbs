@@ -1,8 +1,11 @@
-{{#view InkyLike.AppView titleBinding="title" sidebarBinding="sidebar"}}
-  {{outlet}}
+{{#if Intimi.Auth.signedIn}}
+  {{#view InkyLike.AppView titleBinding="title" sidebarBinding="sidebar"}}
+    {{outlet}}
 
-  {{#if newMessagePopupVisible}}
-    {{view Intimi.NewMessagePopupView}}
-  {{/if}}
-
-{{/view}}
+    {{#if newMessagePopupVisible}}
+      {{view Intimi.NewMessagePopupView}}
+    {{/if}}
+  {{/view}}
+{{else}}
+  {{view Intimi.AuthView}}
+{{/if}}
