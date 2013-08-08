@@ -1,4 +1,4 @@
-Intimi.ApplicationController = Ember.ArrayController.extend
+Intimi.ApplicationController = Ember.ArrayController.extend Intimi.NewMessageMixin,
   title: 'Intimi'
 
   sidebar: {
