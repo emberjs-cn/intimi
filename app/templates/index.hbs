@@ -1,0 +1,14 @@
+<div class="alert center">
+  {{#if currentUser.mobileAccount}}
+    {{#if currentUser.mobileAccount.needRecharge}}
+      {{!#TODO 处理支付宝返回数据}}
+      你的账户余额只有{{currentUser.mobileAccount.balance}}元, 是否<a data-toggle="modal" href="#rechargeModal">立即充值</a>
+    {{else}}
+      你的账户余额为{{currentUser.mobileAccount.balance}}元。
+    {{/if}}
+  {{else}}
+    抱歉! 您还未开通即时通知服务, 开通后即可使用短信、彩信与您的好友取得联系。是否现在<a {{action 'enableNotificationService'}}>开通服务</a>
+  {{/if}}
+</div>
+
+{{view Intimi.RechargePopupView}}
