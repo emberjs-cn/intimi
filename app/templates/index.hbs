@@ -1,5 +1,5 @@
 <div class="messages">
-  <div class="alert">
+  <div {{bindAttr class=':alert mobileAccountAlertLevelUp:alert-error'}}>
     {{#if Intimi.Auth.user.mobileAccount}}
       {{#if Intimi.Auth.user.mobileAccount.needRecharge}}
         {{!#TODO 处理支付宝返回数据}}
