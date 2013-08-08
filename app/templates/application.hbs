@@ -1,3 +1,7 @@
-{{#view InkyLike.AppView titleBinding="title" sidebarBinding="sidebar"}}
-  {{outlet}}
-{{/view}}
+{{#if Intimi.Auth.signedIn}}
+  {{#view InkyLike.AppView titleBinding="title" sidebarBinding="sidebar"}}
+    {{outlet}}
+  {{/view}}
+{{else}}
+  {{view Intimi.AuthView}}
+{{/if}}
