@@ -1,16 +1,16 @@
 <div class="messages">
   <div class="alert">
-    {{#if currentUser.mobileAccount}}
-      {{#if currentUser.mobileAccount.needRecharge}}
+    {{#if Intimi.Auth.user.mobileAccount}}
+      {{#if Intimi.Auth.user.mobileAccount.needRecharge}}
         {{!#TODO 处理支付宝返回数据}}
-        你的账户余额只有<strong>{{currentUser.mobileAccount.balance}}元</strong>, 是否<a data-toggle="modal" href="#rechargeModal">立即充值</a>？
+        你的账户余额只有<strong>{{Intimi.Auth.user.mobileAccount.balance}}</strong>元, 是否<a data-toggle="modal" href='#selectPrepaidCardModal'>立即充值</a>？
       {{else}}
-        你的账户余额为{{currentUser.mobileAccount.balance}}元。
+        你的账户余额为{{Intimi.Auth.user.mobileAccount.balance}}元。
       {{/if}}
     {{else}}
-      <strong>抱歉! </strong>您还未开通即时通知服务, 开通后即可使用短信、彩信与您的好友取得联系。是否现在<a {{action 'enableNotificationService'}}>开通服务</a>？
+      <strong>抱歉! </strong>您还未开通即时通知服务, 开通后即可使用短信、彩信与您的好友取得联系。是否现在<a {{action 'registerMobileAccount'}}>开通服务</a>？
     {{/if}}
   </div>
 </div>
 
-{{view Intimi.RechargePopupView}}
+{{view Intimi.SelectPrepaidCardPopupView}}
