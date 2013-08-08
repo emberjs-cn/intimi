@@ -7,3 +7,24 @@ Intimi.Message = DS.Model.extend
 
   sender: DS.belongsTo('Intimi.Sender')
   receiver: DS.belongsTo('Intimi.Receiver')
+
+  didCreate: ->
+    number = if isOut
+      @get('receiver.number')
+    else
+      @get('sender.number')
+
+    # FIXME Create it if not exist
+    contact = Intimi.Contact.find(number: number)
+
+    contact.set('latestMessage', this)
+    contact.incrementProperty('messagesCount')
+    contact.incrementProperty('notRepliedCount') if isOut and survey
+
+    contact.save()
+
+  isIn: ->
+    @get('direction') == 'in'
+
+  isOut: ->
+    @get('direction') == 'out'
