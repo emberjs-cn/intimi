@@ -3,7 +3,9 @@
 $FontAwesomePath: "./fonts";
 @import "font-awesome/scss/font-awesome";
 
+@import 'index';
 @import 'contacts';
+@import 'new_message_popup';
 
 a:hover {
   text-decoration: none;

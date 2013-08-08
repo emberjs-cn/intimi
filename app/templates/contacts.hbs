@@ -1,10 +1,9 @@
 <div class="inkylike-toolbar">
   <ul>
-    <li><a href="#" {{action togglePopup}}><i class="icon-edit"></i> 发信息</a></li>
+    <li><a href="#" {{action showNewMessagePopup}}><i class="icon-edit"></i> 发信息</a></li>
   </ul>
 </div>
 <div class="content">
-  {{render "new_message"}}
   <div class="left">
     <ul class="contacts">
       {{#each model}}
