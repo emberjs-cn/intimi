@@ -3,6 +3,10 @@ Intimi.IndexController = Ember.ObjectController.extend
     Intimi.User.find(1)
   ).property()
 
+  prepaidCards: (->
+    Intimi.PrepaidCard.find()
+  ).property()
+
   enableNotificationService: ->
     mobileAccount = Intimi.MobileAccount.createRecord()
     mobileAccount.save()

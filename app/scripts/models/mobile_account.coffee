@@ -4,4 +4,3 @@ Intimi.MobileAccount = DS.Model.extend
   needRecharge: (->
     @get('balance') < 10
   ).property('balance')
-
