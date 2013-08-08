@@ -2,7 +2,7 @@
   {{#if Intimi.Auth.user.mobileAccount}}
     {{#if Intimi.Auth.user.mobileAccount.needRecharge}}
       {{!#TODO 处理支付宝返回数据}}
-      你的账户余额只有{{Intimi.Auth.user.mobileAccount.balance}}元, 是否<a data-toggle="modal" href="#rechargeModal">立即充值</a>
+      你的账户余额只有{{Intimi.Auth.user.mobileAccount.balance}}元, 是否<a data-toggle="modal" href='#selectPrepaidCardModal'>立即充值</a>
     {{else}}
       你的账户余额为{{Intimi.Auth.user.mobileAccount.balance}}元。
     {{/if}}
@@ -11,4 +11,4 @@
   {{/if}}
 </div>
 
-{{view Intimi.RechargePopupView}}
+{{view Intimi.SelectPrepaidCardPopupView}}
