@@ -1,3 +1,8 @@
 {{#view InkyLike.AppView titleBinding="title" sidebarBinding="sidebar"}}
   {{outlet}}
+
+  {{#if newMessagePopupVisible}}
+    {{view Intimi.NewMessagePopupView}}
+  {{/if}}
+
 {{/view}}
