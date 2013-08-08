@@ -1,0 +1,26 @@
+<div class="modal hide" id="rechargeModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">请选择充值金额</h4>
+      </div>
+      <form>
+        <div class="modal-body">
+          {{#each prepaidCards}}
+          <div>
+            <label>
+              {{input type="radio" name="prepaid_card[id]" value=id}}
+              {{price}}元
+            </label>
+          </div>
+          {{/each}}
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">提交</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+

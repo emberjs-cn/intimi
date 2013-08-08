@@ -1,4 +1,6 @@
 Intimi.IndexController = Ember.ObjectController.extend
+  rechargePopupVisible: false
+
   currentUser: (->
     Intimi.User.find(1)
   ).property()
@@ -13,4 +15,4 @@ Intimi.IndexController = Ember.ObjectController.extend
     @set('currentUser.mobileAccount', mobileAccount)
 
   recharge: ->
-    @set('currentUser.mobileAccount.balance', 1000)
+    @set('rechargePopupVisible', true)
