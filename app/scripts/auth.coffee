@@ -10,7 +10,7 @@ Intimi.Auth = Ember.Auth.create
   modules: ['emberData', 'authRedirectable', 'actionRedirectable', 'rememberable']
 
   authRedirectable:
-    route: 'sign-in'
+    route: 'sign_in'
 
     actionRedirectable:
       signInRoute: 'users'
