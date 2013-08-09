@@ -14,3 +14,8 @@ require('scripts/models/*')
 require('scripts/views/*')
 require('scripts/router')
 require('scripts/fixtures/*')
+
+Intimi.initializer
+  name: 'createDummyData'
+  initialize: (container, application) ->
+    Intimi.User.createRecord(email: 'intimi@example.com', name: 'intimi', password: '123456').save()
