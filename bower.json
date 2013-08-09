@@ -10,7 +10,8 @@
     "ember-auth": "7.1.0",
     "ember": "https://github.com/emberjs-cn/ember.git#1.0.0-rc.6.1",
     "ember-data-shim": "https://github.com/emberjs-cn/ember-data.git#0.0.13-1",
-    "ember-inkylike": "git@gitlab.menglifang.org:base/ember-inkylike.git"
+    "ember-inkylike": "git@gitlab.menglifang.org:base/ember-inkylike.git",
+    "ember-localstorage-adapter": "https://github.com/rpflorence/ember-localstorage-adapter.git"
   },
   "devDependencies": {
     "ember-mocha-adapter": "0.1.1"
