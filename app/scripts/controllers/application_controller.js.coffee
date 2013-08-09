@@ -30,12 +30,20 @@ Intimi.ApplicationController = Ember.ArrayController.extend Intimi.NewMessageMix
       text: '系统管理',
       items: [{
         icon: 'images/users.png',
-        url: '/#/users',
+        url: '#/users',
         text: '用户管理'
+      }, {
+        icon: 'images/profile.png',
+        url: '#/settings',
+        text: '个人设置'
       }]
     }],
 
     starterItems: [{
+      icon: 'icon-wrench',
+      url: '#/settings',
+      text: '个人设置'
+    }, {
       icon: 'icon-off',
       url: '#/sign_out',
       text: '注销'
