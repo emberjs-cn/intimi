@@ -1,5 +1,5 @@
 Intimi.Router.map ->
-  @route 'sign-in'
+  @route 'sign_in'
 
   @resource 'contacts', ->
     @resource 'contact', path: '/:contact_id'

@@ -15,7 +15,7 @@ Intimi.Auth = Ember.Auth.create
     actionRedirectable:
       signInRoute: 'users'
       signInSmart: true
-      signInBlacklist: ['sign-in']
+      signInBlacklist: ['sign_in']
       signOutRoute: '/'
 
       rememberable:
