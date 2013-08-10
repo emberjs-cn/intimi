@@ -1,0 +1,32 @@
+<div class="inkylike-toolbar">
+  <ul class="pull-right">
+    <li {{action 'revertChanges'}}>
+      <i class="icon-undo"></i>
+      取消修改
+    </li>
+    <li {{action 'save'}}>
+      <i class="icon-save"></i>
+      保存
+    </li>
+  </ul>
+</div>
+<div class="content">
+  <div class="left left-small">
+    <ul class="options">
+      <li>
+        {{#linkTo 'profile'}}
+          个人信息
+        {{/linkTo}}
+      </li>
+      <li>
+        {{#linkTo 'password'}}
+          修改密码
+        {{/linkTo}}
+      </li>
+    </ul>
+  </div>
+
+  <div class="right">
+    {{outlet}}
+  </div>
+</div>
