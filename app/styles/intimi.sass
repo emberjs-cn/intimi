@@ -4,90 +4,17 @@ $FontAwesomePath: './fonts'
 @import 'font-awesome/scss/font-awesome'
 
 @import 'inkylike_overrides'
-@import 'intimi/sign_in'
-@import 'intimi/index'
-@import 'intimi/contacts'
-@import 'intimi/new_message_popup'
 
 body
   background: $h----
 
 .content
-  .box
-    height: 30%
-    content: ''
-  .alert
-    width: 50%
-    margin: 5px auto
-    +border-radius(0)
-  .right
-    background: #fff
-    //+opacity(.1)
-    .handle
-      width: 100%
-      height: 25%
-      >div
-        float: left
-      .side
-        height: 100%
-        width: 10%
-        text-align: center
-        padding-top: 18%
-        color: $b--
-      .content
-        width: 70%
-        padding: 4%
-        margin-top: 3%
-        border-left: 1px solid $h----
-        border-right: 1px solid $h----
-
-        //+background(linear-gradient(top, $h----, #fff))
-        .buton
-          +stretch-y(35%)
-
-    .history
-      box-shadow: 0 0 10px rgba(0, 0, 0, .9),0 3px 7px rgba(0, 0, 0, 0.3),inset 0 1px rgba(255,255,255,1),inset 0 -3px 2px rgba(0,0,0,0.25)
-      height: 75%
-      background:  #fff
-      .alert
-        width: 100%
-        margin: 0
-      header
-        color: $h--
-        text-align: center
-        padding: 1%
-      .centent
-        height: 45%
-        overflow-y: auto
-        ul
-          li
-            padding: 10px 80px
-            list-style-type: none
-            .badge
-              +border-radius(0)
-              padding: 10px
-      footer
-        +background(linear-gradient(top, $b--,$b-))
-        padding: 4%
-        input
-          color: #fff
-          height: 30px
-        input[type='text']
-          width: 250%
-          +border-radius(0%)
-          background: $h----
-          color: $b-
-          border: 1px solid $b
-        button
-          color: #fff
-          height: 40px
-          background: $b---
-          border: 1px solid $b--
-
-
+  height: 100%
   .left
+    height: 100%
+    float: left
+    width: 400px
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.3),0 3px 7px rgba(0, 0, 0, 0.3),inset 0 1px rgba(255,255,255,1),inset 0 -3px 2px rgba(0,0,0,0.25)
-    width: 500px
     ul
       li
         border-top: 5px $g--- solid
@@ -102,35 +29,40 @@ body
           background: none !important
           span.message
             color: #000000 !important
-  .sentMessage
-    box-shadow: 0 0 40px rgba(0, 0, 0, .9),0 3px 7px rgba(0, 0, 0, 0.3),inset 0 1px rgba(255,255,255,1),inset 0 -3px 2px rgba(0,0,0,0.25)
-    border: 2px $h--- solid
-    +stretch-y(300px)
-    +stretch-x(800px)
-    header
-      color: #fff
-      padding: 10px
+  .right
+    overflow: hidden
+    height: 100%
+
+.sentMessage
+  box-shadow: 0 0 40px rgba(0, 0, 0, .9),0 3px 7px rgba(0, 0, 0, 0.3),inset 0 1px rgba(255,255,255,1),inset 0 -3px 2px rgba(0,0,0,0.25)
+  border: 2px $h--- solid
+  +stretch-y(300px)
+  +stretch-x(800px)
+  header
+    color: #fff
+    padding: 10px
+    background: $b--
+    button
+      margin-top: -2px
+  .context
+    height: 65%
+    input
+      width: 96%
+      padding: 8px
+      border: none
+    textarea
+      width: 97%
+      height: 100%
+      border: none
+  footer
+    +stretch-y(350px,0)
+    padding: 5px 0 0 30px
+    input[type=submit]
       background: $b--
-      button
-        margin-top: -2px
-    .context
-      height: 65%
-      input
-        width: 96%
-        padding: 8px
-        border: none
-      textarea
-        width: 97%
-        height: 100%
-        border: none
-    footer
-      +stretch-y(350px,0)
-      padding: 5px 0 0 30px
-      input[type=submit]
-        background: $b--
-        border: $b---- 2px solid
-        color:  #fff
-        padding: 5px 20px
+      border: $b---- 2px solid
+      color:  #fff
+      padding: 5px 20px
+
 .btn
   +border-radius(0%)
 
@@ -144,3 +76,10 @@ body
 
 hr
   margin: 5px 0
+
+@import 'intimi/sign_in'
+@import 'intimi/index'
+@import 'intimi/new_message_popup'
+
+@import 'intimi/content_left'
+@import 'intimi/content_right'
