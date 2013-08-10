@@ -5,6 +5,10 @@ Intimi.User = DS.Model.extend
   password: DS.attr('string')
   roles:    DS.attr('string', defaultValue: 'user')
 
+  availableRoles: (->
+    ['admin', 'user']
+  ).property().readOnly()
+
   mobileAccount: DS.belongsTo 'Intimi.MobileAccount'
 
   registerMobileAccount: ->

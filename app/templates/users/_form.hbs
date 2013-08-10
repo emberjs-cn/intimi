@@ -24,5 +24,11 @@
         {{input type='text' value=password}}
       </div>
     </li>
+    <li>
+      <div class="add-on">角色</div>
+      <div class="field">
+        {{view Ember.Select contentBinding='availableRoles' valueBinding=roles}}
+      </div>
+    </li>
   </ul>
 </form>
