@@ -19,4 +19,6 @@ require('scripts/fixtures/*')
 Intimi.initializer
   name: 'createDummyData'
   initialize: (container, application) ->
-    Intimi.User.createRecord(email: 'intimi@example.com', name: 'intimi', password: '123456').save()
+    Intimi.User.find(name: 'intimi').then (users) ->
+      if users.get('length') == 0
+        Intimi.User.createRecord(email: 'intimi@example.com', name: 'intimi', password: '123456').save()
