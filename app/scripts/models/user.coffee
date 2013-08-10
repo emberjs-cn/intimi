@@ -1,10 +1,11 @@
 Intimi.User = DS.Model.extend
-  email: DS.attr 'string'
-  name:  DS.attr 'string'
+  email:    DS.attr 'string'
+  name:     DS.attr 'string'
   realname: DS.attr 'string'
   password: DS.attr 'string'
 
-  mobileAccount: DS.belongsTo('Intimi.MobileAccount')
+  mobileAccount: DS.belongsTo 'Intimi.MobileAccount'
+  roles:         DS.hasMany   'Intimi.Role'
 
   registerMobileAccount: ->
     mobileAccount = Intimi.MobileAccount.createRecord()
