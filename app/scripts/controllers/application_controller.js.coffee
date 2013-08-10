@@ -53,3 +53,9 @@ Intimi.ApplicationController = Ember.ArrayController.extend Intimi.NewMessageMix
   updateCurrentPath: (->
     Intimi.set('currentPath', @get('currentPath'))
   ).observes('currentPath')
+
+  authenticate: (login, password) ->
+    Intimi.User.find(name: login).then (users) ->
+      user = users.get('firstObject')
+      if user.get('password') == password
+        Intimi.Auth.createSession '{ "user_id": "' + user.get('id') + '", "auth_token": "uvwxyz" }'

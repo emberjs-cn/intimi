@@ -9,6 +9,4 @@ Intimi.AuthSignInView = Ember.View.extend
     event.preventDefault()
     event.stopPropagation()
 
-    Intimi.User.find(name: @get('login'), password: @get('password')).then (users) ->
-      user = users.get('firstObject')
-      Intimi.Auth.createSession '{ "user_id": "' + user.get('id') + '", "auth_token": "uvwxyz" }' if user
+    @get('controller').send('authenticate', @get('login'), @get('password'))
