@@ -28,6 +28,6 @@ Intimi.initializer
                  name: 'intimi'
                  password: '123456'
                  realname: 'Intimi'
+                 roles: 'admin'
         user.save()
 
-        user.get('roles').createRecord(name: 'admin').save()

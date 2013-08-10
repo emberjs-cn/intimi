@@ -1,4 +1,4 @@
 Intimi.SignOutRoute = Ember.Route.extend
-  init: ->
+  beforeModel: ->
     Intimi.Auth.destroySession()
     @transitionTo('/')

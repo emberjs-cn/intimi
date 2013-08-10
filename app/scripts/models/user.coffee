@@ -1,11 +1,11 @@
 Intimi.User = DS.Model.extend
-  email:    DS.attr 'string'
-  name:     DS.attr 'string'
-  realname: DS.attr 'string'
-  password: DS.attr 'string'
+  email:    DS.attr('string')
+  name:     DS.attr('string')
+  realname: DS.attr('string')
+  password: DS.attr('string')
+  roles:    DS.attr('string', defaultValue: 'user')
 
   mobileAccount: DS.belongsTo 'Intimi.MobileAccount'
-  roles:         DS.hasMany   'Intimi.Role'
 
   registerMobileAccount: ->
     mobileAccount = Intimi.MobileAccount.createRecord()
@@ -22,3 +22,21 @@ Intimi.User = DS.Model.extend
       self.save()
 
       resolve()
+
+  hasRole: (roles, matchMode) ->
+    roles = [roles] if typeof(roles) == 'string'
+
+    self = @
+    match = false
+    if matchMode == 'any'
+      roles.forEach (role) ->
+        if self.get('roles') && self.get('roles').split(', ').contains(role)
+          match = true
+          return false
+    else
+      roles.forEach (role) ->
+        if !self.get('roles') || !self.get('roles').split(', ').contains(role)
+          match = false
+          return false
+
+    match
