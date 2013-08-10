@@ -12,7 +12,7 @@ Intimi.User = DS.Model.extend
   mobileAccount: DS.belongsTo 'Intimi.MobileAccount'
 
   registerMobileAccount: ->
-    mobileAccount = Intimi.MobileAccount.createRecord()
+    mobileAccount = Intimi.MobileAccount.createRecord(number: 10657500123400 + Math.round(Math.random() * 100))
     mobileAccount.save()
     @set('mobileAccount', mobileAccount)
 
