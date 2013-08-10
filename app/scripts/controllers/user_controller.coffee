@@ -10,6 +10,9 @@ Intimi.UserController = Ember.ObjectController.extend
     , -> Notifier.error('保存用户失败')
 
   remove: ->
+    if @get('model.id') == Intimi.Auth.get('user.id')
+      return Notifier.error('对不起，您不允许删除自己！')
+
     @get('model').deleteRecord()
     @get('store').commit()
     @transitionToRoute('users')
