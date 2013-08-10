@@ -1,6 +1,8 @@
 Intimi.MobileAccount = DS.Model.extend
-  user: DS.belongsTo('Intimi.User')
+  number: DS.attr('string')
   balance: DS.attr('number', defaultValue: 0)
+
+  user: DS.belongsTo('Intimi.User')
 
   needRecharge: (-> @get('balance') < 10).property('balance')
 

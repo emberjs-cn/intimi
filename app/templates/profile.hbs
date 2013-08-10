@@ -14,11 +14,12 @@
 </h2>
 
 <form>
+  <div class="legend">基本信息</div>
   <ul class="fields">
     <li>
       <div class="add-on">用户名</div>
       <div class="field">
-        {{model.name}}
+        {{name}}
       </div>
     </li>
     <li>
@@ -31,6 +32,25 @@
       <div class="add-on">真实姓名</div>
       <div class="field">
         {{input type='text' value=realname}}
+      </div>
+    </li>
+  </ul>
+</form>
+
+<form>
+  <div class="legend">即时通知账户信息</div>
+  <ul class="fields">
+    <li>
+      <div class="add-on">信息号</div>
+      <div class="field">
+        {{mobileAccount.number}}
+      </div>
+    </li>
+    <li>
+      <div class="add-on">账户余额</div>
+      <div class="field">
+        {{mobileAccount.balance}}
+        <button class="pull-right">充值</button>
       </div>
     </li>
   </ul>
