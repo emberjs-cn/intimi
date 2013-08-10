@@ -8,3 +8,7 @@ Intimi.Router.map ->
   @resource 'settings', ->
     @resource 'profile'
     @resource 'password'
+
+  @resource 'users', ->
+    @route 'new'
+    @resource 'user', path: '/:user_id'
