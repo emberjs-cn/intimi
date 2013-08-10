@@ -11,7 +11,8 @@
     "ember": "https://github.com/emberjs-cn/ember.git#1.0.0-rc.6.1",
     "ember-data-shim": "https://github.com/emberjs-cn/ember-data.git#0.0.13-1",
     "ember-inkylike": "git@gitlab.menglifang.org:base/ember-inkylike.git",
-    "ember-localstorage-adapter": "https://github.com/rpflorence/ember-localstorage-adapter.git"
+    "ember-localstorage-adapter": "https://github.com/rpflorence/ember-localstorage-adapter.git",
+    "notifier.js": "https://github.com/Srirangan/notifer.js.git#ef35e359402c6d713b9c16cb3b9bb7e54b1a0ae1"
   },
   "devDependencies": {
     "ember-mocha-adapter": "0.1.1"

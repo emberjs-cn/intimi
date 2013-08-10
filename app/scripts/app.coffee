@@ -1,3 +1,5 @@
+NotifierjsConfig.position = ["bottom", "right"]
+
 Ember.LOG_BINDING = true
 
 Intimi = window.Intimi = Ember.Application.create
