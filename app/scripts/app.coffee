@@ -2,6 +2,7 @@ Ember.LOG_BINDING = true
 
 Intimi = window.Intimi = Ember.Application.create
   LOG_TRANSITIONS: true
+  currentPath: ''
 
 # Order and include as you please.
 require('scripts/mixins/*')

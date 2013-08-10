@@ -49,3 +49,7 @@ Intimi.ApplicationController = Ember.ArrayController.extend Intimi.NewMessageMix
       text: '注销'
     }]
   }
+
+  updateCurrentPath: (->
+    Intimi.set('currentPath', @get('currentPath'))
+  ).observes('currentPath')
