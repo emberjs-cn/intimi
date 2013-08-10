@@ -11,4 +11,7 @@ Intimi.PasswordController = Ember.ObjectController.extend
       @get('oldPassword'),
       @get('newPassword'),
       @get('passwordConfirmation')
-    )
+    ).then (successMsg) ->
+      Notifier.success('修改密码成功')
+    , (errorMsg) -> Notifier.error(errorMsg)
+

@@ -4,5 +4,5 @@ Intimi.ProfileController = Ember.ObjectController.extend
 
   save: ->
     @get('model').save().then ->
-      Ember.RSVP.resolve('个人信息修改成功')
-    , -> Ember.RSVP.reject('个人信息修改失败')
+      Notifier.success('个人信息修改成功')
+    , -> Notifier.error('个人信息修改失败')
