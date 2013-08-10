@@ -12,14 +12,17 @@
         background: none
         border: none
     .switch-button
-      &:hover
-        background: none
-        border: none
+      background: none !important
+      border: none
+
+
+
 
   #navigator
     .menu-items
       ul
         li
+          padding: 5px 26px
           &:hover
             background: lighten($b-, 20%) !important
           .icon
@@ -39,3 +42,26 @@
       color: #fff
       &:hover
         background: lighten($b-, 20%) !important
+
+
+.inkylike-sidebar-expanded
+  #navigator
+    .menu-items
+      ul
+        li
+          .icon
+            border: none !important
+
+
+#selectPrepaidCardModal
+  .modal-body
+    text-align: center
+    div
+      float: left
+      width: 30%
+      margin: 0 25px
+      padding: 8px 35px 8px 14px
+      margin-bottom: 20px
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5)
+      background-color: #fcf8e3
+      border: 1px solid #fbeed5
