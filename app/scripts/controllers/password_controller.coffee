@@ -5,3 +5,10 @@ Intimi.PasswordController = Ember.ObjectController.extend
 
   revertChanges: ->
     @setProperties oldPassword: null, newPassword: null, passwordConfirmation: null
+
+  save: ->
+    Intimi.Auth.get('user').changePassword(
+      @get('oldPassword'),
+      @get('newPassword'),
+      @get('passwordConfirmation')
+    )
