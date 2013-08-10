@@ -23,4 +23,11 @@ Intimi.initializer
   initialize: (container, application) ->
     Intimi.User.find(name: 'intimi').then (users) ->
       if users.get('length') == 0
-        Intimi.User.createRecord(email: 'intimi@example.com', name: 'intimi', password: '123456', realname: 'Intimi').save()
+        user = Intimi.User.createRecord
+                 email: 'intimi@example.com'
+                 name: 'intimi'
+                 password: '123456'
+                 realname: 'Intimi'
+        user.save()
+
+        user.get('roles').createRecord(name: 'admin').save()
