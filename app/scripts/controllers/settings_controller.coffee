@@ -1,5 +1,5 @@
 Intimi.SettingsController = Ember.ObjectController.extend
-  needs: ['password']
+  needs: ['profile', 'password']
 
   revertChanges: -> @_getCurrentController().revertChanges()
 
