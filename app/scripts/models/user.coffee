@@ -5,6 +5,8 @@ Intimi.User = DS.Model.extend
   password: DS.attr('string')
   roles:    DS.attr('string', defaultValue: 'user')
 
+  contacts: DS.hasMany('Intimi.Contact')
+
   availableRoles: (->
     ['admin', 'user']
   ).property().readOnly()

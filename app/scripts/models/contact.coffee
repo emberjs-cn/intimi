@@ -3,3 +3,4 @@ Intimi.Contact = Intimi.BaseContact.extend
   messagesCount: DS.attr('number')
 
   latestMessage: DS.belongsTo('Intimi.Message')
+  user: DS.belongsTo('Intimi.User')
