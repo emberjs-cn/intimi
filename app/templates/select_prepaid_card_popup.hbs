@@ -8,12 +8,11 @@
       <form>
         <div class="modal-body">
           {{#each prepaidCards}}
-          <div>
-            <label>
-              {{input type="radio" name="prepaid_card[id]" value=id}}
-              {{price}}元
-            </label>
-          </div>
+            <div>
+              <label>
+                {{view view.radioButton valueBinding=id}}{{price}}元
+              </label>
+            </div>
           {{/each}}
         </div>
         <div class="modal-footer">

@@ -1,5 +1,6 @@
 Intimi.IndexController = Ember.ObjectController.extend
   mobileAccountAlertLevelUp: false
+  prepaidCardId: 1
 
   prepaidCards: (->
     Intimi.PrepaidCard.find()
