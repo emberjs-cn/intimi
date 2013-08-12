@@ -17,6 +17,7 @@ require('scripts/models/*')
 require('scripts/views/*')
 require('scripts/router')
 require('scripts/fixtures/*')
+require('scripts/lib/*')
 
 Intimi.initializer
   name: 'createDummyData'

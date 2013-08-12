@@ -7,13 +7,15 @@
       </div>
       <form>
         <div class="modal-body">
-          {{#each prepaidCards}}
-            <div>
-              <label>
-                {{view view.radioButton valueBinding=id}}{{price}}元
-              </label>
-            </div>
-          {{/each}}
+          {{#view Intimi.RadioButtonGroup valueBinding="view.selectedPrepaidCardId" name="prepaidCardId"}}
+            {{#each prepaidCards}}
+              <div>
+                <label>
+                  {{view view.RadioButton valueBinding=id}}{{price}}元
+                </label>
+              </div>
+            {{/each}}
+          {{/view}}
         </div>
         <div class="modal-footer">
           <button type="submit" class="btn btn-primary">提交</button>
@@ -22,4 +24,3 @@
     </div>
   </div>
 </div>
-
