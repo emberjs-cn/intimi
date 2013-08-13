@@ -33,8 +33,8 @@ Intimi.initializer
         user.save()
 
     if Intimi.PrepaidCard.find().get('length') == 0
-      for prepaid_card in Intimi.PrepaidCard.FIXTURES
+      for price in [10, 50, 100, 300, 500, 1000]
         Intimi.PrepaidCard.createRecord
-          price: prepaid_card.price
+          price: price
 
 
