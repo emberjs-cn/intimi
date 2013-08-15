@@ -37,4 +37,20 @@ Intimi.initializer
         Intimi.PrepaidCard.createRecord
           price: price
 
+    if Intimi.Contact.find().get('length') == 0
+      [1..20].map (i) ->
+        message = Intimi.Message.createRecord
+          content: Faker.Lorem.sentence(),
+          direction: 'out',
+          status: 'sent',
+          survey: 'false',
+          sender: Intimi.Sender.find(1),
+          receiver: Intimi.Receiver.find(1)
 
+        Intimi.Contact.createRecord
+          user: Intimi.User.find(1),
+          name: Faker.Name.findName(),
+          number: Faker.PhoneNumber.phoneNumber(),
+          notRepliedCount: Faker.random.number(10),
+          messagesCount: Faker.random.number(10),
+          latestMessage: message
