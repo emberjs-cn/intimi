@@ -32,7 +32,9 @@ Intimi.initializer
                  roles: 'admin'
         user.save()
 
-    if Intimi.PrepaidCard.find().get('length') == 0
+    Intimi.PrepaidCard.find().then (cards) ->
+      return unless cards.get('length') == 0
+
       for price in [10, 50, 100, 300, 500, 1000]
         Intimi.PrepaidCard.createRecord
           price: price
