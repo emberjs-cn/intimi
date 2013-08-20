@@ -2,7 +2,7 @@
   <div class="popup-header">发送即时通知</div>
 
   <div class="popup-receivers">
-    {{input value=view.receivers class='input-plain' placeholder='收件人'}}
+    {{view Intimi.ReceiversAutoCompleteView valueBinding=view.numbers placeholder='联系人'}}
   </div>
 
   <div class="popup-content">
