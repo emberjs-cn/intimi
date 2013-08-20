@@ -6,6 +6,7 @@ Intimi.User = DS.Model.extend
   roles:    DS.attr('string', defaultValue: 'user')
 
   contacts: DS.hasMany('Intimi.Contact')
+  conversations: DS.hasMany('Intimi.Conversation')
 
   availableRoles: (->
     ['admin', 'user']

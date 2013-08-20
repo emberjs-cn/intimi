@@ -46,7 +46,7 @@ Intimi.initializer
             content: Faker.Lorem.sentence(),
             direction: 'out',
             status: 'sent',
-            survey: 'false',
+            survey: (Math.random() > 0.5),
             sender: Intimi.Sender.find(1),
             receiver: Intimi.Receiver.find(1)
 
@@ -57,3 +57,12 @@ Intimi.initializer
             notRepliedCount: Faker.random.number(10),
             messagesCount: Faker.random.number(10),
             latestMessage: message
+
+    Intimi.Conversation.find().then (conversations) ->
+      if conversations.get('length') == 0
+        [1..20].map (i) ->
+          contact = Intimi.Contact.find(i)
+          Intimi.Conversation.createRecord
+            interlocutor: Intimi.Contact.find(i)
+            messages: contact.latestMessage
+            user: Intimi.User.find(1)

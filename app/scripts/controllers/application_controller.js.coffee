@@ -26,7 +26,7 @@ Intimi.ApplicationController = Ember.ArrayController.extend Intimi.NewMessageMix
       roles: ['admin', 'user']
       items: [{
         icon: 'images/contacts.png',
-        url: '#/contacts',
+        url: '#/conversations',
         text: '最新消息',
         roles: ['admin', 'user']
       }, {

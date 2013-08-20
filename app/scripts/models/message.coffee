@@ -8,6 +8,8 @@ Intimi.Message = DS.Model.extend
   sender: DS.belongsTo('Intimi.Sender')
   receiver: DS.belongsTo('Intimi.Receiver')
 
+  conversation: DS.belongsTo('Intimi.Conversation')
+
   didCreate: ->
     number = if isOut
       @get('receiver.number')
