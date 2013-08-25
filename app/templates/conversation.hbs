@@ -22,22 +22,5 @@
   {{/if}}
 </div>
 <div class="clearfix"></div>
-<div class="messages">
-  <div class="centent">
-    <ul>
-      {{#each messages}}
-        <li {{bindAttr class='isOut:pull-right:pull-left'}}>
-          <div {{bindAttr class=":alert isOut:alert-success:alert-info"}}>
-            <p>{{content}}</p>
-            <small>{{timeAgo createdAt}}</small>
-          </div>
-        </li>
-        <li class="clearfix"></li>
-      {{/each}}
-    </ul>
-  </div>
-  <footer>
-    <input class="pull-left" type="text">
-    <button class="btn pull-right">发送</button>
-  </footer>
-</div>
+
+{{view Intimi.HistoryMessages}}

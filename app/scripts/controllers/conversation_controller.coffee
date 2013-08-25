@@ -21,3 +21,8 @@ Intimi.ConversationController = Ember.ObjectController.extend
   rejectSurvey: (survey) -> survey.reject()
   remainNeutralSurvey: (survey) -> survey.remainNeutral()
 
+  sendMessage: (content, needAReply) ->
+    return if Ember.isEmpty(content)
+
+    message = @get('model.messages').createRecord content: content, needAReply: needAReply
+    message.save()
