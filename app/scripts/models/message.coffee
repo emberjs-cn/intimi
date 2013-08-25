@@ -1,7 +1,7 @@
 Intimi.Message = DS.Model.extend
   content: DS.attr('string')
-  direction: DS.attr('string')
-  status: DS.attr('string')
+  direction: DS.attr('string', defaultValue: 'out')
+  status: DS.attr('string', defaultValue: 'pending')
   createdAt: DS.attr('date')
 
   conversation: DS.belongsTo('Intimi.Conversation')

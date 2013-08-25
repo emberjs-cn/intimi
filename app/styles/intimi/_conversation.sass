@@ -35,7 +35,7 @@
     margin: 0
     height: calc(100% - 200px)
     background:  #fff
-    .centent
+    .content
       height: 100%
       overflow-y: auto
       ul
@@ -52,21 +52,29 @@
       padding: 10px
       border: 1px solid #DDD
       height: 60px
-      input
-        width: calc(100% - 112px)
-        overflow: hidden
-        display: block
-        box-shadow: none
-        padding: 10px
-        display: block
-        border: none
-        margin: 0
-        font-weight: bold
-        +border-radius(0%)
-        border: 1px solid #DDD
-        margin-right: 10px
-      button
-        display: block
-        width: 80px
-        height: 42px
-        border: 1px solid #DDD
+      form
+        padding: 0
+        input[type='text']
+          width: calc(100% - 192px)
+          overflow: hidden
+          display: block
+          box-shadow: none
+          padding: 10px
+          display: block
+          border: none
+          margin: 0
+          font-weight: bold
+          +border-radius(0%)
+          border: 1px solid #DDD
+          margin-right: 10px
+        button
+          display: inline-block
+          width: 80px
+          height: 42px
+          border: 1px solid #DDD
+        label
+          padding: 10px 0px
+          line-height: 20px
+          input[type='checkbox']
+            margin-left: 10px
+            margin-right: 5px
