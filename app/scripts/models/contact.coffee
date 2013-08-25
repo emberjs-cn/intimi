@@ -4,3 +4,6 @@ Intimi.Contact = Intimi.BaseContact.extend
 
   latestMessage: DS.belongsTo('Intimi.Message')
   user: DS.belongsTo('Intimi.User')
+  conversation: DS.belongsTo('Intimi.Conversation', {
+    inverse: 'interlocutor'
+  })

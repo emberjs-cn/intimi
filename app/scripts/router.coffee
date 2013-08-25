@@ -5,6 +5,9 @@ Intimi.Router.map ->
   @resource 'contacts', ->
     @resource 'contact', path: '/:contact_id'
 
+  @resource 'conversations', ->
+    @resource 'conversation', path: '/:conversation_id'
+
   @resource 'settings', ->
     @resource 'profile'
     @resource 'password'

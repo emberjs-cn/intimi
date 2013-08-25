@@ -1,0 +1,26 @@
+<div class="not-replied-surveys clearfix">
+  {{#if currentSurvey }}
+    <div class="side" {{action 'prevSurvey'}}>
+      <i class=" icon-chevron-left"></i>
+    </div>
+    <div class="content">
+      <p>
+        {{currentSurvey.message.content}}
+      </p>
+      <small>{{timeAgo currentSurvey.createdAt}}</small>
+      <div class="buttons pull-right">
+        <button class="btn btn-success" {{action 'confirmSurvey' currentSurvey}}>同意</button>
+        <button class="btn" {{action 'remainNeutralSurvey' currentSurvey}}>中立</button>
+        <button class="btn btn-danger" {{action 'rejectSurvey' currentSurvey}}>拒绝</button>
+      </div>
+    </div>
+    <div class="side" {{action 'nextSurvey'}}>
+      <i class=" icon-chevron-right"></i>
+    </div>
+  {{else}}
+    <p class="alert">没有参与任何调查</p>
+  {{/if}}
+</div>
+<div class="clearfix"></div>
+
+{{view Intimi.HistoryMessages}}
