@@ -9,7 +9,7 @@ Intimi.Survey = DS.Model.extend
 
   reject: -> @changeAttitude('rejected')
 
-  neutral: -> @changeAttitude('neutral')
+  remainNeutral: -> @changeAttitude('neutral')
 
   changeAttitude: (attitude)->
     @set('attitude', attitude)
