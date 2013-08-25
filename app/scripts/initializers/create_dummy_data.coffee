@@ -54,8 +54,8 @@ Intimi.initializer
           [1..5].forEach ->
             message = conversation.get('messages').createRecord
               content: Faker.Lorem.sentence()
-              direction: 'out'
               status: ['pending', 'sending', 'sent'].objectAt(Math.floor(Math.random() * 2))
+              createdAt: Date.new
 
             conversation.get('surveys').createRecord
               createdAt: Date.new

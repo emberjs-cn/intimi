@@ -24,5 +24,12 @@ Intimi.ConversationController = Ember.ObjectController.extend
   sendMessage: (content, needAReply) ->
     return if Ember.isEmpty(content)
 
-    message = @get('model.messages').createRecord content: content, needAReply: needAReply
-    message.save()
+    message = @get('model.messages').createRecord content: content, createdAt: Date.new
+
+    if needAReply
+      @get('model.surveys').createRecord
+        createdAt: Date.new
+        updatedAt: Date.new
+        message: message
+
+    @get('store').commit()
