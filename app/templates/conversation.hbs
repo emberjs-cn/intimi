@@ -1,0 +1,39 @@
+<div class="not-replied-surveys">
+  <div class="side">
+    <i class=" icon-chevron-left"></i>
+  </div>
+  <div class="content">
+    <p>
+      {{surveys.firstObject.message.content}}
+    </p>
+    <small>{{timeAgo surveys.firstObject.createdAt}}</small>
+    <div class="buttons">
+      <button class="btn btn-success">同意</button>
+      <button class="btn">未定</button>
+      <button class="btn btn-danger">拒绝</button>
+    </div>
+  </div>
+  <div class="side">
+    <i class=" icon-chevron-right"></i>
+  </div>
+</div>
+<div class="clearfix"></div>
+<div class="messages">
+  <div class="centent">
+    <ul>
+      {{#each messages}}
+        <li {{bindAttr class='isOut:pull-right:pull-left'}}>
+          <div {{bindAttr class=":alert isOut:alert-success:alert-info"}}>
+            <p>{{content}}</p>
+            <small>{{timeAgo createdAt}}</small>
+          </div>
+        </li>
+        <li class="clearfix"></li>
+      {{/each}}
+    </ul>
+  </div>
+  <footer>
+    <input class="pull-left" type="text">
+    <button class="btn pull-right">发送</button>
+  </footer>
+</div>
