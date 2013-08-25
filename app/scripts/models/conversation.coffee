@@ -9,5 +9,5 @@ Intimi.Conversation = DS.Model.extend
   latestMessage: (-> @get('messages.firstObject')).property('messages.@each')
 
   notRepliedSurveys: (->
-    @get('surveys').filter (survey) -> survey.get('attitude') == null
+    @get('surveys').filter (survey) -> Ember.none(survey.get('attitude'))
   ).property('surveys.@each.attitude')
