@@ -21,8 +21,10 @@ Intimi.Message = DS.Model.extend
 
     #contact.save()
 
-  isIn: ->
+  isIn: (->
     @get('direction') == 'in'
+  ).property('direction')
 
-  isOut: ->
+  isOut: (->
     @get('direction') == 'out'
+  ).property('direction')
