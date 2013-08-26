@@ -1,5 +1,5 @@
 <form>
-  <div class="popup-header">发送即时通知</div>
+  <div class="popup-header">发送即时通知<i class="icon-remove pull-right" {{action 'close' target=view}}></i></div>
 
   <div class="popup-receivers">
     {{view Intimi.ReceiversAutoCompleteView valueBinding=view.numbers placeholder='联系人'}}
