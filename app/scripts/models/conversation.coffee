@@ -11,3 +11,15 @@ Intimi.Conversation = DS.Model.extend
   notRepliedSurveys: (->
     @get('surveys').filter (survey) -> Ember.isEmpty(survey.get('attitude'))
   ).property('surveys.@each.attitude')
+
+  appendMessage: (content, needToReply) ->
+    message = @get('messages').createRecord content: content, createAt: Date.new
+
+    if needToReply
+      @get('surveys').createRecord createdAt: Date.new, updatedAt: Date.new, message: message
+
+Intimi.Conversation.reopenClass
+  findByInterlocutor: (interlocutor) ->
+    new Ember.RSVP.Promise (resolve, reject) ->
+      Intimi.Conversation.find(interlocutor: interlocutor).then (conversations) ->
+        resolve conversations.get('firstObject')
