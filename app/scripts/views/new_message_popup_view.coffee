@@ -18,6 +18,9 @@ Intimi.NewMessagePopupView = Ember.View.extend
     event.preventDefault()
     event.stopPropagation()
 
+    return Notifier.error '请填写联系人' unless @get('interlocutors')
+    return Notifier.error '请填写消息内容' unless @get('content')
+
     @get('controller').send 'sendMessage', @get('interlocutors'), @get('content'), @get('needToReply')
 
     @setProperties
