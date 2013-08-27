@@ -29,23 +29,23 @@ Intimi.ApplicationController = Ember.ArrayController.extend Intimi.NewMessageMix
         url: '#/conversations',
         text: '最新消息',
         roles: ['admin', 'user']
-      }, {
-        icon: 'images/surveys.png',
-        url: '#/surveys',
-        text: '问卷调查',
-        roles: ['admin', 'user']
+      #}, {
+        #icon: 'images/surveys.png',
+        #url: '#/surveys',
+        #text: '问卷调查',
+        #roles: ['admin', 'user']
       }]
-    }, {
-      icon: 'images/email.png',
-      url: '#邮件通知',
-      text: '邮件通知',
-      roles: ['admin', 'user']
-      items: [{
-        icon: 'images/compose.png',
-        url: '#/emails/compose',
-        text: '写邮件',
-        roles: ['admin', 'user']
-      }]
+    #}, {
+      #icon: 'images/email.png',
+      #url: '#邮件通知',
+      #text: '邮件通知',
+      #roles: ['admin', 'user']
+      #items: [{
+        #icon: 'images/compose.png',
+        #url: '#/emails/compose',
+        #text: '写邮件',
+        #roles: ['admin', 'user']
+      #}]
     }, {
       icon: 'images/settings.png',
       url: '#系统管理',
