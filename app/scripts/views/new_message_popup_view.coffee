@@ -1,15 +1,33 @@
 Intimi.NewMessagePopupView = Ember.View.extend
   templateName: 'new_message_popup'
-  classNames: ['new-message-popup']
+  classNameBindings: [':new-message-popup', 'isVisible::hide']
+
+  isVisableBinding: 'controller.newMessagePopupVisible'
+
+  interlocutors: null
+  content: null
+  needToReply: false
+
+  close: ->
+    @set 'isVisable', false
 
   didInsertElement: ->
-    @$('.popup-receivers input').focus()
+    @$('.popup-interlocutors input').focus()
 
-  submit: ->
-    @get('controller').send('createMessage', @get('receivers'), @get('content'), @get('survey'))
+  submit: (event) ->
+    event.preventDefault()
+    event.stopPropagation()
+
+    return Notifier.error '请填写联系人' unless @get('interlocutors')
+    return Notifier.error '请填写消息内容' unless @get('content')
+
+    @get('controller').send 'sendMessage', @get('interlocutors'), @get('content'), @get('needToReply')
 
     @setProperties
-      receivers: ''
-      content: ''
-      survey: false
-      'controller.newMessagePopupVisible': false
+      interlocutors: null
+      content: null
+      needToReply: false
+
+    @close()
+
+
