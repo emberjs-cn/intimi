@@ -80,7 +80,7 @@ Intimi.ApplicationController = Ember.ArrayController.extend Intimi.NewMessageMix
   ).observes('currentPath')
 
   authenticate: (login, password) ->
-    Intimi.User.find(name: login).then (users) ->
+    @get('store').find(Intimi.User, name: login).then (users) ->
       return Notifier.error('您输入的用户名不存在') if users.get('length') == 0
 
       user = users.get('firstObject')

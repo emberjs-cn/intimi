@@ -21,5 +21,5 @@ Intimi.Conversation = DS.Model.extend
 Intimi.Conversation.reopenClass
   findByInterlocutor: (interlocutor) ->
     new Ember.RSVP.Promise (resolve, reject) ->
-      Intimi.Conversation.find(interlocutor: interlocutor).then (conversations) ->
+      @get('store').find(Intimi.Conversation, interlocutor: interlocutor).then (conversations) ->
         resolve conversations.get('firstObject')

@@ -3,7 +3,7 @@ Intimi.ConversationsRoute = Ember.Route.extend
     unless Intimi.Auth.get('user.minsAccount.available')
       Ember.RSVP.reject('MinsAccount not available')
 
-  model: -> Intimi.Conversation.find()
+  #model: -> Intimi.Conversation.find()
 
   events:
     error: ->
