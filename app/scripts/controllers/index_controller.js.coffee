@@ -1,11 +1,11 @@
 Intimi.IndexController = Ember.ObjectController.extend
-  mobileAccountAlertLevelUp: false
+  minsAccountAlertLevelUp: false
 
   prepaidCards: (->
    Intimi.PrepaidCard.find()
   ).property()
 
-  registerMobileAccount: ->
-    Intimi.Auth.get('user').registerMobileAccount()
+  registerMinsAccount: ->
+    Intimi.Auth.get('user').registerMinsAccount()
 
-    @set('mobileAccountAlertLevelUp', false)
+    @set('minsAccountAlertLevelUp', false)

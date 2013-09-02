@@ -5,8 +5,8 @@ Intimi.SelectPrepaidCardPopupView = Ember.View.extend
   submit: (event) ->
     prepaid_card = Intimi.PrepaidCard.find(@get('selectedPrepaidCardId'))
     user = Intimi.Auth.get('user')
-    balance = user.get('mobileAccount.balance')
-    user.set("mobileAccount.balance", balance + prepaid_card.get('price'))
+    balance = user.get('minsAccount.balance')
+    user.set("minsAccount.balance", balance + prepaid_card.get('price'))
 
     $('#selectPrepaidCardModal').modal('hide')
 

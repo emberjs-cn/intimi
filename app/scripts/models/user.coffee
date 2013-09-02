@@ -12,12 +12,12 @@ Intimi.User = DS.Model.extend
     ['admin', 'user']
   ).property().readOnly()
 
-  mobileAccount: DS.belongsTo 'Intimi.MobileAccount'
+  minsAccount: DS.belongsTo 'Intimi.MinsAccount'
 
-  registerMobileAccount: ->
-    mobileAccount = Intimi.MobileAccount.createRecord(number: 10657500123400 + Math.round(Math.random() * 100))
-    mobileAccount.save()
-    @set('mobileAccount', mobileAccount)
+  registerMinsAccount: ->
+    minsAccount = Intimi.MinsAccount.createRecord(number: 10657500123400 + Math.round(Math.random() * 100))
+    minsAccount.save()
+    @set('minsAccount', minsAccount)
 
   changePassword: (oldPwd, newPwd, pwdConfirmation) ->
     self = @
