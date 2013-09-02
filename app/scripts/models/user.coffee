@@ -5,14 +5,9 @@ Intimi.User = DS.Model.extend
   password: DS.attr('string')
   roles:    DS.attr('string', defaultValue: 'user')
 
-  contacts: DS.hasMany('Intimi.Contact')
-  conversations: DS.hasMany('Intimi.Conversation')
-
   availableRoles: (->
     ['admin', 'user']
   ).property().readOnly()
-
-  minsAccount: DS.belongsTo 'Intimi.MinsAccount'
 
   registerMinsAccount: ->
     minsAccount = Intimi.MinsAccount.createRecord(number: 10657500123400 + Math.round(Math.random() * 100))
