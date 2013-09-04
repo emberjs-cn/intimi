@@ -1,14 +1,18 @@
 Intimi.NewMessageMixin = Ember.Mixin.create
   newMessagePopupVisible: false
 
-  sendMessage: (interlocutorsString, content, needToReply = false) ->
-    interlocutors = interlocutorsString.split(',')
+  actions:
+    sendMessage: (interlocutorsString, content, needToReply = false) ->
+      interlocutors = interlocutorsString.split(',')
 
-    interlocutors.forEach (interlocutor) ->
-      Intimi.Conversation.findByInterlocutor(interlocutor).then (conversation) ->
-        unless conversation
-          conversation = Intimi.Conversation.createRecord
+      store = @get('store')
+      interlocutors.forEach (interlocutor) ->
+        store.find('conversation', interlocutor: interlocutor).then (conversations) ->
+          conversation = conversations.get('firstObject')
+          return conversation.appendMessage(content, needToReply) if conversation
+
+          conversation = store.createRecord 'conversation',
             interlocutor: interlocutor
-            account: Intimi.Auth.get('user.account')
+            minsAccount: Intimi.Auth.get('user.minsAccount')
 
-        conversation.appendMessage(content, needToReply)
+          conversation.save().then -> conversation.appendMessage(content, needToReply)

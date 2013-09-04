@@ -1,10 +1,10 @@
 Intimi.Conversation = DS.Model.extend
   interlocutor: DS.attr('string')
 
-  account: DS.belongsTo('Intimi.MobileAccount')
+  minsAccount: DS.belongsTo('minsAccount')
 
-  messages: DS.hasMany('Intimi.Message')
-  surveys:  DS.hasMany('Intimi.Survey')
+  messages: DS.hasMany('message')
+  surveys:  DS.hasMany('survey')
 
   latestMessage: (-> @get('messages.firstObject')).property('messages.@each')
 
@@ -13,13 +13,8 @@ Intimi.Conversation = DS.Model.extend
   ).property('surveys.@each.attitude')
 
   appendMessage: (content, needToReply) ->
-    message = @get('messages').createRecord content: content, createAt: Date.new
-
-    if needToReply
-      @get('surveys').createRecord createdAt: Date.new, updatedAt: Date.new, message: message
-
-Intimi.Conversation.reopenClass
-  findByInterlocutor: (interlocutor) ->
-    new Ember.RSVP.Promise (resolve, reject) ->
-      Intimi.Conversation.find(interlocutor: interlocutor).then (conversations) ->
-        resolve conversations.get('firstObject')
+    message = @get('messages').createRecord content: content, createAt: new Date()
+    message.save().then =>
+      if needToReply
+        survey = @get('surveys').createRecord createdAt: new Date(), updatedAt: new Date(), message: message
+        survey.save()

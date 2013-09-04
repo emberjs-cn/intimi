@@ -1,2 +1,2 @@
 Intimi.UsersRoute = Ember.Route.extend
-  model: -> Intimi.User.find()
+  model: -> @get('store').find('user')
