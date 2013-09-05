@@ -1,4 +1,4 @@
 Intimi.ApplicationRoute = Ember.Route.extend
-  events:
+  actions:
     showNewMessagePopup: ->
       @get('controller').set('newMessagePopupVisible', true)
