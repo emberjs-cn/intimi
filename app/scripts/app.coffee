@@ -6,8 +6,11 @@ Intimi = window.Intimi = Ember.Application.create
   LOG_TRANSITIONS: true
   currentPath: ''
 
-Intimi.Store = DS.Store.extend
-  adapter: DS.LSAdapter.extend(namespace: 'intimi')
+#Intimi.Store = DS.Store.extend
+  #adapter: DS.LSAdapter.extend(namespace: 'intimi')
+
+Intimi.ApplicationAdapter = DS.LSAdapter.extend
+  namespace: 'intimi'
 
 # Order and include as you please.
 require('scripts/mixins/*')
