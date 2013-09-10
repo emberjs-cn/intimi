@@ -81,11 +81,13 @@ Intimi.ApplicationController = Ember.ArrayController.extend Intimi.NewMessageMix
 
   actions:
     authenticate: (login, password) ->
-      @get('store').find(Intimi.User, name: login).then (users) ->
-        return Notifier.error('您输入的用户名不存在') if users.get('length') == 0
+      @get('store').find('user', name: login).then (users) =>
+        return Notifier.error('您输入的用户名不存在') if Ember.isEmpty(users)
 
         user = users.get('firstObject')
         if user.get('password') == password
-          Intimi.Auth.createSession '{ "user_id": "' + user.get('id') + '", "auth_token": "uvwxyz" }'
+          # FIXME
+          #Intimi.Auth.createSession '{ "user_id": "' + user.get('id') + '", "auth_token": "uvwxyz" }'
+          Intimi.Auth.set('user', user)
         else
           Notifier.error('您输入的密码不正确')

@@ -7,7 +7,7 @@ Ember.onLoad 'Ember.Application', (Application) ->
       store.find('user', name: 'intimi').then (users) ->
         return unless Ember.isEmpty(users)
 
-        user = store.createRecord Intimi.User,
+        user = store.createRecord 'user',
                  email: 'intimi@example.com'
                  name: 'intimi'
                  password: '123456'
@@ -15,9 +15,9 @@ Ember.onLoad 'Ember.Application', (Application) ->
                  roles: 'admin'
         user.save()
 
-      store.find(Intimi.PrepaidCard).then (cards) ->
+      store.find('prepaidCard').then (cards) ->
         return unless Ember.isEmpty(cards)
 
         for price in [10, 50, 100, 300, 500, 1000]
-          card = store.createRecord(Intimi.PrepaidCard, price: price)
+          card = store.createRecord('prepaidCard', price: price)
           card.save()

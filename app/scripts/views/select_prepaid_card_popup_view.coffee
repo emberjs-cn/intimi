@@ -7,9 +7,8 @@ Intimi.SelectPrepaidCardPopupView = Ember.View.extend
     event.stopPropagation()
 
     # TODO Moved the logic to ApplicationController
-    prepaidCard = @get('controller.store').find(Intimi.PrepaidCard, @get('selectedPrepaidCardId'))
-    user = Intimi.Auth.get('user')
-    balance = user.get('minsAccount.balance')
-    user.set("minsAccount.balance", balance + prepaidCard.get('price'))
+    @get('controller.store').find('prepaidCard', @get('selectedPrepaidCardId')).then (card) ->
+      user = Intimi.Auth.get('user')
+      user.get('minsAccount').recharge(card.get('price'))
 
     $('#selectPrepaidCardModal').modal('hide')

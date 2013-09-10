@@ -5,14 +5,17 @@ Intimi.User = DS.Model.extend
   password: DS.attr('string')
   roles:    DS.attr('string', defaultValue: 'user')
 
+  minsAccount: DS.belongsTo('minsAccount')
+
   availableRoles: (->
     ['admin', 'user']
   ).property().readOnly()
 
   registerMinsAccount: ->
-    minsAccount = Intimi.MinsAccount.createRecord(number: 10657500123400 + Math.round(Math.random() * 100))
-    minsAccount.save()
-    @set('minsAccount', minsAccount)
+    minsAccount = @get('store').createRecord('minsAccount', number: 10657500123400 + Math.round(Math.random() * 100), balance: 0)
+    minsAccount.save().then =>
+      @set('minsAccount', minsAccount)
+      @save()
 
   changePassword: (oldPwd, newPwd, pwdConfirmation) ->
     self = @

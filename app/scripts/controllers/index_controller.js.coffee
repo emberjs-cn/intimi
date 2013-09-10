@@ -2,10 +2,11 @@ Intimi.IndexController = Ember.ObjectController.extend
   minsAccountAlertLevelUp: false
 
   prepaidCards: (->
-   @get('store').find(Intimi.PrepaidCard)
+    @get('store').find('prepaidCard')
   ).property()
 
-  registerMinsAccount: ->
-    Intimi.Auth.get('user').registerMinsAccount()
+  actions:
+    registerMinsAccount: ->
+      Intimi.Auth.get('user').registerMinsAccount()
 
-    @set('minsAccountAlertLevelUp', false)
+      @set('minsAccountAlertLevelUp', false)
