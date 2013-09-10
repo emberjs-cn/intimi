@@ -1,0 +1,51 @@
+@import 'compass/layout/stretching'
+@import 'compass/css3'
+
+@import "_variables"
+
+a:hover
+  text-decoration: none
+  cursor: pointer
+
+ul.fields
+  list-style-type: none
+  margin: 0
+  li
+    border: 1px solid #E0E0E0
+    margin-top: -1px
+    height: 40px
+    *
+      display: block
+    .add-on
+      float: left
+      padding: 10px 20px
+      color: #878787
+      min-width: 100px
+    .field
+      position: relative
+      overflow: hidden
+      line-height: 40px
+      font-weight: bold
+      input, select
+        box-shadow: none
+        padding: 10px 0px
+        display: block
+        border: none
+        margin: 0
+        width: 100%
+        font-weight: bold
+      select
+        height: 40px
+      button
+        position: absolute
+        top: 0
+        right: 0
+        font-weight: bold
+        width: 60px
+        height: 40px
+        border: none
+        border-left: 1px solid #E0E0E0
+        background-color: #F2F2F2
+      button:hover
+        background-color: #E4E4E4
+

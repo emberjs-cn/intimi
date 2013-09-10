@@ -1,0 +1,28 @@
+<div class="inkylike-toolbar">
+  <ul class="toolbar-actions pull-left">
+    <li>
+      {{#linkTo 'users.new'}}
+        <i class="icon-plus icon-large"></i>
+        添加用户
+      {{/linkTo}}
+    </li>
+  </ul>
+</div>
+<div class="content">
+  <div class="left left-medium">
+    <ul class="users">
+      {{#each model}}
+        <li>
+          {{#linkTo 'user' this}}
+            <div class="name">{{name}} ({{realname}})</div>
+            <div class="email">{{email}}</div>
+          {{/linkTo}}
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+
+  <div class="right">
+    {{outlet}}
+  </div>
+</div>

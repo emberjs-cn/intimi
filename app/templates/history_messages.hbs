@@ -1,0 +1,22 @@
+<div class="content">
+  <ul>
+    {{#each messages}}
+      <li {{bindAttr class='isOut:pull-right:pull-left'}}>
+        <div {{bindAttr class=":alert isOut:alert-success:alert-info"}}>
+          <p>{{content}}</p>
+          <small>{{timeAgo createdAt}}</small>
+        </div>
+      </li>
+      <li class="clearfix"></li>
+    {{/each}}
+  </ul>
+</div>
+<footer>
+  <form autocomplete="off">
+    {{input value=view.newMessageContent class='pull-left'}}
+    <button class="btn inline" type="submit">发送</button>
+    <label class="checkbox inline">
+      {{input checked=view.needAReply type='checkbox'}} 需回复
+    </label>
+  </form>
+</footer>

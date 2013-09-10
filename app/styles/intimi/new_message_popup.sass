@@ -1,0 +1,44 @@
+.new-message-popup
+  z-index: 99
+  width: 400px
+  position: absolute
+  right: 5px
+  bottom: 1px
+  border: 1px solid #ccc
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 6px 0px
+
+  form
+    padding: 0
+    margin: 0
+
+  .input-plain
+    border: 0
+    outline: none
+    border-radius: 0
+    margin: 0
+
+    &:focus
+      outline: 0
+      border-radius: 0
+      box-shadow: none
+
+  .popup-header
+    background-color: #1B81D3
+    color: white
+    padding: 6px 10px
+    margin-left: -1px
+    margin-right: -1px
+    i
+      cursor: pointer
+
+  .popup-receivers, .popup-content
+    border-bottom: 1px solid #ccc
+    overflow-x: hidden
+
+  .popup-footer
+    padding: 5px 10px
+    background-color: #f5f5f5
+
+    label
+      padding-top: 0
+      margin-left: 10px

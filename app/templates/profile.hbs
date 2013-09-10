@@ -1,0 +1,57 @@
+<ul class="toolbar-actions pull-toolbar">
+  <li {{action 'save'}}>
+    <i class="icon-save icon-large"></i>
+    保存
+  </li>
+  <li {{action 'revertChanges'}}>
+    <i class="icon-undo icon-large"></i>
+    取消修改
+  </li>
+</ul>
+
+<h2>
+  个人信息
+</h2>
+
+<form>
+  <div class="legend">基本信息</div>
+  <ul class="fields">
+    <li>
+      <div class="add-on">用户名</div>
+      <div class="field">
+        {{name}}
+      </div>
+    </li>
+    <li>
+      <div class="add-on">电子邮箱</div>
+      <div class="field">
+        {{input type='text' value=email}}
+      </div>
+    </li>
+    <li>
+      <div class="add-on">真实姓名</div>
+      <div class="field">
+        {{input type='text' value=realname}}
+      </div>
+    </li>
+  </ul>
+</form>
+
+<form>
+  <div class="legend">即时通知账户信息</div>
+  <ul class="fields">
+    <li>
+      <div class="add-on">信息号</div>
+      <div class="field">
+        {{minsAccount.number}}
+      </div>
+    </li>
+    <li>
+      <div class="add-on">账户余额</div>
+      <div class="field">
+        {{minsAccount.balance}}
+        <button class="pull-right">充值</button>
+      </div>
+    </li>
+  </ul>
+</form>

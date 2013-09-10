@@ -1,0 +1,360 @@
+@import "login.sass"
+@import "compass/layout/stretching"
+
+@mixin mackintosh($top,$left)
+  position: absolute
+  content: ""
+  top: $top
+  left: $left
+  width: 40%
+  height: 14%
+  border-left: 1px dashed rgba(0, 0, 0, 0.1)
+  border-right: 1px dashed rgba(0, 0, 0, 0.1)
+  background: rgba(0, 0, 0, 0.1)
+  +background(linear-gradient(555% 0 180deg, rgba(0,0,0,0.1), rgba(0,0,0,0.2) 10%, rgba(0,0,0,0.0)))
+  box-shadow: 0px 0px 3px rgba(0,0,0,0.15)
+  +translate(44px,-10px)
+  +skew(0deg)
+  +rotate(-45deg)
+
+@mixin box-padding
+  margin: 10px
+
+
+
+
+//左边模块主体
+.sidebar
+  margin: 5px 20px
+  padding: 10px
+  width: 124px
+  position: relative
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.3),0 3px 7px rgba(0, 0, 0, 0.3),inset 0 1px rgba(255,255,255,1),inset 0 -3px 2px rgba(0,0,0,0.25)
+  border-radius: 5px
+  @include background(linear-gradient(top, #fafafa, $white))
+  +stretch-y
+
+  //home键
+  .home
+    width: 145px
+    height: 145px
+    position: absolute
+    top: 75%
+    right: -13px
+    padding: 10px
+    z-index: 2
+    background: $white
+    border-radius: 50%
+    box-shadow: 0 0 2px rgba(0,0,0,0.1),0 3px 2px rgba(0,0,0,0.1),inset 0 -3px 2px rgba(0,0,0,0.2)
+    .button-circle
+      height: 100%
+      width: 100%
+      line-height: 125px
+
+    //主菜单
+  .menu
+    padding: 0
+    margin: 20px auto
+    position: absolute
+    top: 45%
+    left: 32px
+
+    li
+      width: 60px
+      height: 60px
+      +border-radius(5px)
+      overflow: hidden
+      position: relative
+      line-height: 0
+      margin: 1px 0 4px 1px
+      +background(linear-gradient(left, $white 0%, #f6f6f6 47%,#ededed 100%))
+      box-shadow: 0 0 2px rgba(0,0,0,0.1),0 3px 2px rgba(0,0,0,0.1),inset 0 -3px 2px rgba(0,0,0,0.2)
+      +transition(all 300ms linear)
+      &:hover
+        background: $white
+        .ca-icon
+          color: #ddd
+          font-size: 40px
+          opacity: 0.6
+          +animation(0ms,400ms,ease,normal,1,moveFromLeft)
+        .ca-content
+          opacity: 0.9
+        .ca-main
+          +animation(0ms,300ms,ease,normal,1,moveFromRight)
+      a
+        text-align: left
+        width: 100%
+        height: 100%
+        display: block
+        color: $cyan-hover
+        .ca-icon
+          font-size: 25px
+          color: #00a1cb
+          box-shadow: inset 0 0 5px rgba(0,0,0,0.1),inset 0 3px 2px rgba(0,0,0,0.1)
+          line-height: 55px
+          position: absolute
+          width: 100%
+          height: 50%
+          left: 0px
+          top: 0px
+          text-align: center
+        .ca-content
+          position: absolute
+          position: absolute
+          left: 0px
+          opacity: 0.0
+          width: 100%
+          height: 50%
+          top: 50%
+          .ca-main
+            text-align: center
+
+  .subnav
+    box-shadow: inset 0 0 45px rgba(0,0,0,0.1),inset 0 3px 2px rgba(0,0,0,0.1)
+    +border-radius(15px)
+    height: 250px
+    padding-top: 5px
+    ul
+      padding: 10px 0 0 0
+      margin: 0
+      li
+        list-style-type: none
+        text-align: center
+        border-bottom: rgba(0,0,0,0.1) solid
+        padding: 10px 0 10px 0
+        &:last-child
+          border-bottom: none
+        a
+          transition:  padding-left .5s cubic-bezier(.26,.51,.44,2.92)
+          &:hover
+            padding-left: 5px
+            text-shadow: #005580 0 0 1px
+            transition:  padding-left .5s cubic-bezier(.26,.51,.44,2.92)
+
+@mixin handle-box-button($right,$top)
+  position: absolute
+  width: 55px
+  height: 55px
+  top: $top
+  right: $right
+  background: $white
+  border-radius: 50%
+  box-shadow: 0 1px 5px rgba(0,0,0,0.25), 0 0 20px rgba(0,0,0,0.1) inset
+  &:after
+    content: ""
+    width: 65px
+    height: 10px
+    position: absolute
+    top: 45px
+    left: 0px
+    background: $white
+    box-shadow: 0 0 15px rgba(0,0,0,0.04) inset
+  .button
+    height: 35px
+    width: 35px
+    top: 10px
+    position: absolute
+    left: 10px
+    line-height: 1.7
+
+//操作模块
+.handle-box
+  position: relative
+  width: 450px
+  top: 60px
+  left: 725px
+  height: 200px
+  +border-radius(5px)
+  padding: 10px 100px 10px 10px
+  background-color: $white
+  box-shadow: 0 1px 5px rgba(0,0,0,0.25), 0 0 50px rgba(0,0,0,0.1) inset
+  .left
+    +handle-box-button(350px,145px)
+  .right
+    +handle-box-button(290px,145px)
+  .subnav
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.1),inset 0 3px 2px rgba(0,0,0,0.1)
+    +border-radius(5px)
+    height: 180px
+    padding: 15px
+  .button-group
+    position: absolute
+    top: 40px
+    left: 370px
+    .button
+      box-shadow: inset 0 0 45px rgba(0,0,0,0.1),inset 0 3px 2px rgba(0,0,0,0.1)
+
+
+
+
+
+
+
+
+//聊天纪录模块
+.cat-box
+  position: relative
+  width: 450px
+  left: 700px
+  background-color: $white
+  box-shadow: 0 1px 5px rgba(0,0,0,0.25), 0 0 50px rgba(0,0,0,0.1) inset
+  +stretch-y(350px,20px)
+  +border-radius(5px)
+  >div
+    +box-padding
+  &:after
+    +mackintosh(10px,-60px)
+  .subnav
+    box-shadow: inset 0 0 45px rgba(0,0,0,0.1),inset 0 3px 2px rgba(0,0,0,0.1)
+    +border-radius(5px)
+    height: 250px
+    padding-top: 5px
+    overflow-y: auto
+    ul
+      margin: 0 25px
+      li
+        list-style-type: none
+        padding: 15px
+        a.left
+          box-shadow: 0 1px 5px rgba(0,0,0,0.25), 0 0 50px rgba(0,0,0,0.1) inset
+          padding: 5px
+        a.right
+          box-shadow: 0 1px 5px rgba(0,0,0,0.25), 0 10px 90px $cyan inset
+          padding: 5px
+          color: $white
+
+
+
+
+  .send-input
+    font-size: 13px
+    font-weight: 400
+    text-shadow: 0 1px 0 rgba(255,255,255,0.8)
+    width: 66%
+    margin-left: 24px
+    border: none
+    height: 36px
+    border-radius: 3px
+    background: #f9f9f9
+    color: #777
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.1),inset 0 3px 2px rgba(0,0,0,0.1)
+    @include transition(color,0.3s,ease-out)
+
+
+
+
+
+.stack-div
+  +stretch-y(20px,20px)
+  background: $white
+  left: 200px
+  width: 400px
+  box-shadow: 0 0 3px rgba(0,0,0,.2)
+  border: 1px #323232
+  +border-radius(3px)
+  &:before,&:after
+    background: #f0f0f0
+    border: 1px solid #aaa
+    bottom: -4px
+    content: ''
+    height: 100%
+    left: 2px
+    position: absolute
+    width: 402px
+    z-index: -10
+    box-shadow: 0 0 3px rgba(0,0,0,.2)
+    +border-radius(3px)
+  &:after
+    left: 6px
+    z-index: -11
+    bottom: -8px
+  ul
+    margin: 0
+    li
+      border-top: 1px dashed #ccc
+      list-style-type: none
+      padding: 5px 15px
+      color: $cyan
+      transition:  padding-left .25s cubic-bezier(.26,.51,.44,.92)
+      &:hover
+        background:  rgba(0,0,0,0.02)
+        border: none
+        padding: 5px 10px
+        +border-radius(5px)
+        box-shadow: 0 0 2px rgba(0,0,0,0.1),0 3px 2px rgba(0,0,0,0.1),0 0 2px rgba(0,0,0,0.1)
+        transition:  padding-left .25s cubic-bezier(.26,.51,.44,.92)
+      section
+        header
+          small
+            font-size: 10px
+        div
+          box-shadow: inset 0 0 15px rgba(0,0,0,0.1),inset 0 1px 2px rgba(0,0,0,0.1)
+          +border-radius(5px)
+          padding: 5px
+          color: #000
+        footer
+          font-size: 11px
+          text-align: right
+  span
+    top: 95%
+    width: 100%
+    text-align: center
+    position: absolute
+  .page
+    width: 100%
+    text-align: center
+    padding: 10px
+    color: hsla(0,0%,0%,0)
+    text-shadow: $white 0 0 25px
+    transition: text-shadow 1s cubic-bezier(0, 0.75, 0, 1)
+    cursor: pointer
+    &:hover
+      text-shadow: #005580 0 0 1px
+      transition: text-shadow 1s cubic-bezier(0, 1, 0, 1)
+      box-shadow: inset 0 0 15px rgba(0,0,0,0.1),inset 0 1px 2px rgba(0,0,0,0.1)
+
+
+
+
+
+
+
+
+
+
++keyframe(moveFromLeft)
+  from
+    +transform(translateX(-100%))
+  to
+    +transform(translateX(0%))
+
++keyframe(moveFromRight)
+  from
+    +transform(translateX(100%))
+  to
+    +transform(translateX(0%))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

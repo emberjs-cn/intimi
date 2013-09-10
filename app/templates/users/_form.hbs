@@ -1,0 +1,34 @@
+<form>
+  <ul class="fields">
+    <li>
+      <div class="add-on">用户名</div>
+      <div class="field">
+        {{input type='text' value=name}}
+      </div>
+    </li>
+    <li>
+      <div class="add-on">真实姓名</div>
+      <div class="field">
+        {{input type='text' value=realname}}
+      </div>
+    </li>
+    <li>
+      <div class="add-on">电子邮箱</div>
+      <div class="field">
+        {{input type='text' value=email}}
+      </div>
+    </li>
+    <li>
+      <div class="add-on">密码</div>
+      <div class="field">
+        {{input type='text' value=password}}
+      </div>
+    </li>
+    <li>
+      <div class="add-on">角色</div>
+      <div class="field">
+        {{view Ember.Select contentBinding='availableRoles' valueBinding=roles}}
+      </div>
+    </li>
+  </ul>
+</form>

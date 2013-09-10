@@ -1,0 +1,92 @@
+@import 'bootstrap-sass/lib/bootstrap'
+
+$FontAwesomePath: './fonts'
+@import 'font-awesome/scss/font-awesome'
+
+@import 'inkylike_overrides'
+@import 'select2'
+
+body
+  background: $h----
+
+.content
+  height: 100%
+  .left
+    height: calc(100% - 60px)
+    float: left
+    width: 400px
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.3),0 3px 7px rgba(0, 0, 0, 0.3),inset 0 1px rgba(255,255,255,1),inset 0 -3px 2px rgba(0,0,0,0.25)
+    ul
+      list-style-type: none
+      margin: 0
+      li
+        a
+          border-top: 5px $g--- solid
+          display: block
+          padding-left: 30px
+        a.active
+          border-top-color: #ff6e0c
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.74),0 0 1px rgba(0, 0, 0, 0.3),inset 0 1px rgba(255,255,255,1),inset 0 0px 1px rgba(0,0,0,0.25)
+        +background(linear-gradient(top, $h----, #fff))
+        h3
+          background: none !important
+          border-bottom-color: 2px solid $h-- !important
+        a.active > div
+          background: none !important
+          span.message
+            color: #000000 !important
+  .right
+    overflow: hidden
+    height: calc(100% - 60px)
+
+.sentMessage
+  box-shadow: 0 0 40px rgba(0, 0, 0, .9),0 3px 7px rgba(0, 0, 0, 0.3),inset 0 1px rgba(255,255,255,1),inset 0 -3px 2px rgba(0,0,0,0.25)
+  border: 2px $h--- solid
+  +stretch-y(300px)
+  +stretch-x(800px)
+  header
+    color: #fff
+    padding: 10px
+    background: $b--
+    button
+      margin-top: -2px
+  .context
+    height: 65%
+    input
+      width: 96%
+      padding: 8px
+      border: none
+    textarea
+      width: 97%
+      height: 100%
+      border: none
+  footer
+    +stretch-y(350px,0)
+    padding: 5px 0 0 30px
+    input[type=submit]
+      background: $b--
+      border: $b---- 2px solid
+      color:  #fff
+      padding: 5px 20px
+
+.btn
+  +border-radius(0%)
+
+.dropdown-menu
+  background: #1c578f
+  a
+    border: none !important
+
+.label
+  +border-radius(1px)
+
+hr
+  margin: 5px 0
+
+@import 'intimi/sign_in'
+@import 'intimi/index'
+
+@import 'intimi/toolbar'
+@import 'intimi/popup'
+@import 'intimi/content_left'
+@import 'intimi/content_right'

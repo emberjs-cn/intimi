@@ -1,0 +1,20 @@
+<form>
+  <div class="popup-header">发送即时通知<i class="icon-remove pull-right" {{action 'close' target=view}}></i></div>
+
+  <div class="popup-interlocutors">
+    {{view Intimi.InterlocutorSelection valueBinding=view.interlocutors placeholder='联系人'}}
+  </div>
+
+  <div class="popup-content">
+    {{textarea value=view.content class='input-plain' placeholder='通知内容' rows=8}}
+  </div>
+
+  <div class="popup-footer">
+    <button type="submit" class="btn">发送</button>
+
+    <label class="checkbox inline">
+      {{input checked=view.needToReply type='checkbox'}}
+      需回复
+    </label>
+  </div>
+</form>
