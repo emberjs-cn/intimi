@@ -1,0 +1,27 @@
+@import "_common"
+
+.modal
+  +border-radius(0)
+  .modal-header
+    background: $b--
+    color: #fff
+    box-shadow: none
+    border-bottom: 5px solid #ff6e0c
+    margin-bottom: 5px
+  .modal-body
+    background: #f7f7f7
+    box-shadow: 0px 5px 5px  rgba(0, 0, 0, 0.3)
+    input
+      +border-radius(0)
+
+.modal .modal-body .prepaid-cards div
+  float: left
+  padding: 10px
+  margin-left: 10px
+  margin-bottom: 10px
+  width: 140px
+  border: 1px solid #ff6e0c
+  input
+    margin: 0 10px
+
+@import "new_message_popup"
