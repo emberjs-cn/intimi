@@ -4,7 +4,7 @@ VERSION: 0.2.0
 
 ### 开发流程定义
 
-1. 在`http://gitlab.menglifang.org`上fork项目。
+1. 在`https://github.com/emberjs-cn/intimi`上fork项目。
 1. 从fork的项目签出项目源代码。（项目的主开发分支为develop）
 1. 运行测试。版本库中的代码是能通过单元测试的，这也能确保你签出的代码状态没有问题。
 1. 创建分支进行开发。
@@ -19,7 +19,7 @@ VERSION: 0.2.0
 
 4. 首先编写测试。如果只是对文档进行修改，可以忽略此步骤。如果是编写一个新功能或者修订一个错误，则必须添加测试，用于保证正确性。
 5. 编写实现代码，满足第四部定义的测试。
-6. 将分支`push`到`gitlab.menglifang.org`上fork的项目，并提交一个合并请求（pull
+6. 将分支`push`到`github.com`上fork的项目，并提交一个合并请求（pull
    request）。
 
   ```bash
