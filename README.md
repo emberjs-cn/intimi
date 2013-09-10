@@ -6,7 +6,7 @@ Intimi作为一个Ember.js的示例应用而诞生，主要提供基于短信、
 
 #### 流程与规范
 
-参见[DEVELOPMENT.md](http://gitlab.menglifang.org/opensource/intimi/blob/develop/DEVELOPMENT.md)
+参见[DEVELOPMENT.md](https://github.com/emberjs-cn/intimi/blob/develop/DEVELOPMENT.md)
 
 #### 环境搭建
 
