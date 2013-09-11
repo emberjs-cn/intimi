@@ -2,6 +2,10 @@
 
 Intimi作为一个Ember.js的示例应用而诞生，主要提供基于短信、彩信和邮件通知的功能。
 
+缺省账号：
+
+  用户名：intimi，密码：123456
+
 ### 开发说明
 
 #### 流程与规范
@@ -26,14 +30,14 @@ Intimi作为一个Ember.js的示例应用而诞生，主要提供基于短信、
   bower install
   ```
 
-1. 运行测试
-
-  ```bash
-  grunt test
-  ```
-
 1. 启动服务
 
   ```bash
   grunt server
+  ```
+
+1. 运行测试
+
+  ```bash
+  grunt test
   ```
