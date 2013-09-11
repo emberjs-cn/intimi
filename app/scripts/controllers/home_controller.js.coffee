@@ -1,4 +1,4 @@
-Intimi.IndexController = Ember.ObjectController.extend
+Intimi.HomeController = Ember.ObjectController.extend
   minsAccountAlertLevelUp: false
 
   prepaidCards: (->

@@ -1,17 +1,20 @@
 Intimi.Router.map ->
-  @route 'sign_in'
-  @route 'sign_out'
+  @resource 'login'
 
-  @resource 'contacts', ->
-    @resource 'contact', path: '/:contact_id'
+  @resource 'authenticated', path: '/', ->
+    @resource 'logout'
+    @resource 'home'
 
-  @resource 'conversations', ->
-    @resource 'conversation', path: '/:conversation_id'
+    @resource 'contacts', ->
+      @resource 'contact', path: '/:contact_id'
 
-  @resource 'settings', ->
-    @resource 'profile'
-    @resource 'password'
+    @resource 'conversations', ->
+      @resource 'conversation', path: '/:conversation_id'
 
-  @resource 'users', ->
-    @route 'new'
-    @resource 'user', path: '/:user_id'
+    @resource 'settings', ->
+      @resource 'profile'
+      @resource 'password'
+
+    @resource 'users', ->
+      @route 'new'
+      @resource 'user', path: '/:user_id'
