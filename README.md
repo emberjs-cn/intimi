@@ -14,6 +14,14 @@ Intimi作为一个Ember.js的示例应用而诞生，主要提供基于短信、
 
 #### 环境搭建
 
+1. 安装Ruby（推荐使用RVM或rbenv进行安装）
+
+1. 安装Compass
+
+  ```bash
+  gem install compass
+  ```
+
 1. 安装工具
 
   ```bash
