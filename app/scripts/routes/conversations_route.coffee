@@ -8,5 +8,5 @@ Intimi.ConversationsRoute = Ember.Route.extend
 
   actions:
     error: ->
-      @controllerFor('index').set('minsAccountAlertLevelUp', true)
-      @transitionTo('/')
+      @controllerFor('home').set('minsAccountAlertLevelUp', true)
+      @transitionTo('/home')

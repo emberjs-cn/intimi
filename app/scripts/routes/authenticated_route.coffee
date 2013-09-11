@@ -12,3 +12,6 @@ Intimi.AuthenticatedRoute = Ember.Route.extend
   actions:
     showNewMessagePopup: ->
       @get('controller').set('newMessagePopupVisible', true)
+
+    selectPrepaidCard: ->
+      $('.prepaid-cards-modal').modal()

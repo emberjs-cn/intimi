@@ -1,6 +1,8 @@
 Intimi.AuthenticatedController = Ember.Controller.extend Intimi.NewMessageMixin,
   title: 'Intimi'
 
+  prepaidCards: (-> @get('store').findAll('prepaidCard')).property().volatile()
+
   availableSidebar: (->
     menus = []
     user = Intimi.Auth.get('user')
