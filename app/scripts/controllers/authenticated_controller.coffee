@@ -1,4 +1,4 @@
-Intimi.AuthenticatedController = Ember.Controller.extend
+Intimi.AuthenticatedController = Ember.Controller.extend Intimi.NewMessageMixin,
   title: 'Intimi'
 
   availableSidebar: (->

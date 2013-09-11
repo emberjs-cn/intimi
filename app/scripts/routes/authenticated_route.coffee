@@ -8,3 +8,7 @@ Intimi.AuthenticatedRoute = Ember.Route.extend
       @transitionTo('login')
     else
       @controllerFor('application').login()
+
+  actions:
+    showNewMessagePopup: ->
+      @get('controller').set('newMessagePopupVisible', true)
