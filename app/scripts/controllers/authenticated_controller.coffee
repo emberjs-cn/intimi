@@ -1,5 +1,7 @@
-Intimi.ApplicationController = Ember.ArrayController.extend Intimi.NewMessageMixin,
+Intimi.AuthenticatedController = Ember.Controller.extend Intimi.NewMessageMixin,
   title: 'Intimi'
+
+  prepaidCards: (-> @get('store').findAll('prepaidCard')).property().volatile()
 
   availableSidebar: (->
     menus = []
@@ -70,24 +72,7 @@ Intimi.ApplicationController = Ember.ArrayController.extend Intimi.NewMessageMix
       text: '个人设置'
     }, {
       icon: 'icon-off',
-      url: '#/sign_out',
+      url: '#/logout',
       text: '注销'
     }]
   }
-
-  updateCurrentPath: (->
-    Intimi.set('currentPath', @get('currentPath'))
-  ).observes('currentPath')
-
-  actions:
-    authenticate: (login, password) ->
-      @get('store').find('user', name: login).then (users) =>
-        return Notifier.error('您输入的用户名不存在') if Ember.isEmpty(users)
-
-        user = users.get('firstObject')
-        if user.get('password') == password
-          # FIXME
-          #Intimi.Auth.createSession '{ "user_id": "' + user.get('id') + '", "auth_token": "uvwxyz" }'
-          Intimi.Auth.set('user', user)
-        else
-          Notifier.error('您输入的密码不正确')

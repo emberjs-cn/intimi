@@ -3,7 +3,8 @@
     {{#if Intimi.Auth.user.minsAccount}}
       {{#if Intimi.Auth.user.minsAccount.needRecharge}}
         {{!#TODO 处理支付宝返回数据}}
-        你的账户余额只有<strong>{{Intimi.Auth.user.minsAccount.balance}}</strong>元, 是否 <a data-toggle="modal" href='#selectPrepaidCardModal'><strong>立即充值</strong></a> ？
+        你的账户余额只有<strong>{{Intimi.Auth.user.minsAccount.balance}}</strong>元,
+        是否 <a {{action "selectPrepaidCard"}}><strong>立即充值</strong></a> ？
       {{else}}
         你的账户余额为{{Intimi.Auth.user.minsAccount.balance}}元。
       {{/if}}
@@ -12,5 +13,3 @@
     {{/if}}
   </div>
 </div>
-
-{{view Intimi.SelectPrepaidCardPopupView}}

@@ -1,9 +1,5 @@
-Intimi.IndexController = Ember.ObjectController.extend
+Intimi.HomeController = Ember.ObjectController.extend
   minsAccountAlertLevelUp: false
-
-  prepaidCards: (->
-    @get('store').find('prepaidCard')
-  ).property()
 
   actions:
     registerMinsAccount: ->

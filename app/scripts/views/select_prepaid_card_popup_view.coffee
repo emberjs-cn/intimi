@@ -11,4 +11,4 @@ Intimi.SelectPrepaidCardPopupView = Ember.View.extend
       user = Intimi.Auth.get('user')
       user.get('minsAccount').recharge(card.get('price'))
 
-    $('#selectPrepaidCardModal').modal('hide')
+    $('.prepaid-cards-modal').modal('hide')
