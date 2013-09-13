@@ -5,6 +5,8 @@ Intimi.ApplicationController = Ember.ArrayController.extend
   savedTransition: null
 
   login: ->
+    data = JSON.stringify(Intimi.Auth.get('user').serialize(includeId: true))
+    localStorage.setItem('intimi:currentUser', data)
     @set 'savedTransition', null
 
   logout: ->

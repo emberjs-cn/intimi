@@ -6,12 +6,13 @@ Intimi.LoginRoute = Ember.Route.extend
       password = loginController.get('password')
 
       $.post(Intimi.HOST + '/users/sign_in.json', user: { login: username, password: password }).then (payload) =>
-        localStorage.setItem('intimi:currentUser', JSON.stringify(payload.user))
 
         applicationController = @controllerFor('application')
         transition = applicationController.get('savedTransition')
 
-        user = @get('store').push('user', payload.user)
+        serializer = @get('store').serializerFor('user')
+        data = serializer.extract(@get('store'), Intimi.User, payload, payload.user.id, 'find')
+        user = @get('store').push('user', data)
         Intimi.Auth.set 'user', user
 
         applicationController.login()

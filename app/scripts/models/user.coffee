@@ -3,10 +3,9 @@ Intimi.User = DS.Model.extend
   username:            DS.attr('string')
   realname:            DS.attr('string')
   password:            DS.attr('string')
-  roles:               DS.attr('string', defaultValue: 'user')
   accessLocked:        DS.attr('boolean')
   authenticationToken: DS.attr('string')
-
+  roles:               DS.attr('string', defaultValue: 'user')
 
   minsAccount: DS.belongsTo('minsAccount')
 

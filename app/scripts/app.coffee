@@ -6,23 +6,11 @@ Intimi = window.Intimi = Ember.Application.create
   LOG_TRANSITIONS: true
   HOST: 'http://localhost:3001'
 
-Intimi.ApplicationAdapter = DS.RESTAdapter.extend
+Intimi.ApplicationAdapter = DS.ActiveModelAdapter.extend
   host: Intimi.HOST
   namespace: 'v1'
 
-  pathForType: (type) ->
-    decamelized = Ember.String.decamelize(type)
-    Ember.String.pluralize(decamelized)
-
-Intimi.ApplicationSerializer = DS.RESTSerializer.extend
-  typeForRoot: (root) ->
-    debugger
-    camelized = Ember.String.camelize(root)
-    Ember.String.singularize(camelized)
-
-  keyForAttribute: (attribute) ->
-    debugger
-    Ember.String.underscore(attribute)
+Intimi.ApplicationSerializer = DS.ActiveModelSerializer.extend()
 
 $.ajaxPrefilter (options, originalOptions, jqXHR) ->
   currentUser = JSON.parse(localStorage.getItem('intimi:currentUser'))
