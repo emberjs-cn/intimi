@@ -18,6 +18,6 @@ Ember.onLoad 'Ember.Application', (Application) ->
       store.find('prepaidCard').then (cards) ->
         return unless Ember.isEmpty(cards)
 
-        for price in [10, 50, 100, 300, 500, 1000]
-          card = store.createRecord('prepaidCard', price: price)
+        for value in [10, 50, 100, 300, 500, 1000]
+          card = store.createRecord('prepaidCard', name: value + '元', value: value)
           card.save()
