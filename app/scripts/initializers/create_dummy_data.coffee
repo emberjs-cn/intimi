@@ -4,14 +4,14 @@ Ember.onLoad 'Ember.Application', (Application) ->
     initialize: (container, application) ->
       store = container.lookup('store:main')
 
-      store.find('user', name: 'intimi').then (users) ->
+      store.find('user', username: 'intimi').then (users) ->
         return unless Ember.isEmpty(users)
 
         user = store.createRecord 'user',
                  email: 'intimi@example.com'
-                 name: 'intimi'
-                 password: '123456'
+                 username: 'intimi'
                  realname: 'Intimi'
+                 password: '123456'
                  roles: 'admin'
         user.save()
 

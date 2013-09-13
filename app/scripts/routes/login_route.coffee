@@ -5,7 +5,7 @@ Intimi.LoginRoute = Ember.Route.extend
       username = loginController.get('username')
       password = loginController.get('password')
 
-      @get('store').find('user', name: username).then (users) =>
+      @get('store').find('user', username: username).then (users) =>
         return Notifier.error('您输入的用户名不存在') if Ember.isEmpty(users)
 
         user = users.get('firstObject')

@@ -2,7 +2,7 @@ Intimi.UsersNewRoute = Ember.Route.extend
   controllerName: 'user'
 
   setupController: ->
-    @controllerFor('user').set 'model', @get('store').createRecord('user', email: '空', name: '空', realname: '空')
+    @controllerFor('user').set 'model', @get('store').createRecord('user', email: '空', username: '空', realname: '空')
 
   actions:
     willTransition: ->
