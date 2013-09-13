@@ -17,6 +17,8 @@ $.ajaxPrefilter (options, originalOptions, jqXHR) ->
   if currentUser
     options.data = $.param($.extend(originalOptions.data, auth_token: currentUser.authentication_token))
 
+  return false
+
 # Order and include as you please.
 require('scripts/mixins/*')
 require('scripts/auth')
