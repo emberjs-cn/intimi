@@ -8,5 +8,6 @@ Intimi.ApplicationController = Ember.ArrayController.extend
     @set 'savedTransition', null
 
   logout: ->
+    localStorage.currentUsername = null
     Intimi.Auth.set('user', null)
 

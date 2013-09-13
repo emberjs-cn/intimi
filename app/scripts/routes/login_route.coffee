@@ -11,12 +11,13 @@ Intimi.LoginRoute = Ember.Route.extend
         user = users.get('firstObject')
         return Notifier.error('您输入的密码不正确') if user.get('password') != password
 
-        applicationController = @controllerFor('application')
-        transition = applicationController.get('savedTransition')
-
+        localStorage.currentUsername = username
         Intimi.Auth.set('user', user)
+
+        applicationController = @controllerFor('application')
         applicationController.login()
 
+        transition = applicationController.get('savedTransition')
         # if the user was going somewhere, send them along, otherwise
         # default to `/home`
         if transition && transition.get('targetName') != 'authenticated.index'
