@@ -21,15 +21,15 @@ Intimi.User = DS.Model.extend
       @get('store').push('minsAccount', data)
 
   changePassword: (oldPwd, newPwd, pwdConfirmation) ->
-    self = @
-    new Ember.RSVP.Promise (resolve, reject) ->
-      return reject('您输入的密码不正确') if oldPwd != self.get('password')
-      return reject('您两次输入的新密码不匹配') if newPwd != pwdConfirmation
-
-      self.set('password', newPwd)
-      self.save()
-
-      resolve()
+    $.ajax(
+      url: Intimi.HOST + '/v1/password',
+      type: 'PUT',
+      data:
+        password:
+          current_password: oldPwd
+          password: newPwd
+          password_confirmation: pwdConfirmation
+    )
 
   hasRole: (roles, matchMode) ->
     roles = [roles] if typeof(roles) == 'string'
