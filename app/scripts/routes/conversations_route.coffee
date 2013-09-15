@@ -1,7 +1,7 @@
 Intimi.ConversationsRoute = Ember.Route.extend
   beforeModel: ->
-    unless Intimi.Auth.get('user.minsAccount.available')
-      Ember.RSVP.reject('MinsAccount not available')
+    unless Intimi.Auth.get('user.capitalAccount.available')
+      Ember.RSVP.reject('Capital account not available')
 
   model: ->
     @get('store').findAll('conversation')

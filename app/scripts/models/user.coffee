@@ -8,16 +8,17 @@ Intimi.User = DS.Model.extend
   roles:               DS.attr('string', defaultValue: 'user')
 
   minsAccount: DS.belongsTo('minsAccount')
+  capitalAccount: DS.belongsTo('capitalAccount')
 
   availableRoles: (->
     ['admin', 'user']
   ).property().readOnly()
 
   registerMinsAccount: ->
-    minsAccount = @get('store').createRecord('minsAccount', number: 10657500123400 + Math.round(Math.random() * 100), balance: 0)
-    minsAccount.save().then =>
-      @set('minsAccount', minsAccount)
-      @save()
+    $.post(Intimi.HOST + '/v1/mins_accounts/register').then (payload) =>
+      serializer = @get('store').serializerFor('minsAccount')
+      data = serializer.extract(@get('store'), Intimi.MinsAccount, payload, payload.mins_account.id, 'find')
+      @get('store').push('minsAccount', data)
 
   changePassword: (oldPwd, newPwd, pwdConfirmation) ->
     self = @

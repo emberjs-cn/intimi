@@ -7,8 +7,9 @@ Intimi.SelectPrepaidCardPopupView = Ember.View.extend
     event.stopPropagation()
 
     # TODO Moved the logic to ApplicationController
-    @get('controller.store').find('prepaidCard', @get('selectedPrepaidCardId')).then (card) ->
-      user = Intimi.Auth.get('user')
-      user.get('minsAccount').recharge(card.get('price'))
+    @get('controller.store').find('prepaidCard', @get('selectedPrepaidCardId')).then (card) =>
+      income = @get('controller.store').createRecord 'income', title: '充值', amount: card.get('value')
+      income.save().then ->
+        window.open income.get('alipayUrl')
 
     $('.prepaid-cards-modal').modal('hide')
