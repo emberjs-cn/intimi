@@ -11,8 +11,5 @@ Intimi.NewMessageMixin = Ember.Mixin.create
           conversation = conversations.get('firstObject')
           return conversation.appendMessage(content, needToReply) if conversation
 
-          conversation = store.createRecord 'conversation',
-            interlocutor: interlocutor
-            minsAccount: Intimi.Auth.get('user.minsAccount')
-
+          conversation = store.createRecord 'conversation', interlocutor: interlocutor
           conversation.save().then -> conversation.appendMessage(content, needToReply)

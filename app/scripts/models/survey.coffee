@@ -1,10 +1,8 @@
 Intimi.Survey = DS.Model.extend
+  content: DS.attr('string')
   attitude:  DS.attr('string')
   createdAt: DS.attr('date')
   updatedAt: DS.attr('date')
-
-  message: DS.belongsTo('message')
-  conversation: DS.belongsTo('conversation')
 
   confirm: -> @changeAttitude('confirmed')
 

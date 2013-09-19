@@ -1,8 +1,6 @@
 Intimi.Conversation = DS.Model.extend
   interlocutor: DS.attr('string')
 
-  minsAccount: DS.belongsTo('minsAccount')
-
   messages: DS.hasMany('message', async: true)
   surveys:  DS.hasMany('survey', async: true)
 
@@ -15,13 +13,7 @@ Intimi.Conversation = DS.Model.extend
   appendMessage: (content, needToReply) ->
     self = @
 
-    message = @get('store').createRecord 'message', content: content, createdAt: new Date(), conversation: @
+    message = @get('store').createRecord 'message', content: content, needToReply: needToReply, conversation: @
     message.save().then ->
       self.get('messages').pushObject(message)
-      if needToReply
-        survey = self.get('store').createRecord 'survey', createdAt: new Date(), updatedAt: new Date(), message: message, conversation: self
-        survey.save().then ->
-          self.get('surveys').pushObject(survey)
-          self.save()
-      else
-        self.save()
+      self.get('surveys').pushObject(message.get('survey'))
