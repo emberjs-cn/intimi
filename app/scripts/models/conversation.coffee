@@ -11,9 +11,6 @@ Intimi.Conversation = DS.Model.extend
   ).property('surveys.@each.attitude')
 
   appendMessage: (content, needToReply) ->
-    self = @
-
     message = @get('messages').createRecord content: content, needToReply: needToReply
-    message.save().then ->
-      self.get('messages').pushObject(message)
-      self.get('surveys').pushObject(message.get('survey'))
+    message.save().then =>
+      @get('surveys').addObject(message.get('survey'))
