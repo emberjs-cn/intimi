@@ -1,5 +1,5 @@
 Intimi.Conversation = DS.Model.extend
-  interlocutor: DS.attr('string')
+  interlocutor:  DS.attr('string')
 
   messages: DS.hasMany('message')
   surveys:  DS.hasMany('survey')

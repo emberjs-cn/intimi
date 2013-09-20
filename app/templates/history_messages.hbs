@@ -1,4 +1,7 @@
 <div class="content">
+  <div class="load-more">
+    {{#if hasMoreMessages}}<a {{action 'loadMoreMessages'}}>加载更多</a>{{/if}}
+  </div>
   <ul>
     {{#each messages}}
       <li {{bindAttr class='isOut:pull-right:pull-left'}}>
