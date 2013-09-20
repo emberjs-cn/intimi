@@ -7,7 +7,7 @@ Intimi.NewMessageMixin = Ember.Mixin.create
 
       store = @get('store')
       interlocutors.forEach (interlocutor) ->
-        store.find('conversation', interlocutor: interlocutor).then (conversations) ->
+        store.find('conversation', q: { interlocutor_eq: interlocutor }).then (conversations) ->
           conversation = conversations.get('firstObject')
           return conversation.appendMessage(content, needToReply) if conversation
 

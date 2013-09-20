@@ -1,8 +1,8 @@
 Intimi.Conversation = DS.Model.extend
   interlocutor: DS.attr('string')
 
-  messages: DS.hasMany('message', async: true)
-  surveys:  DS.hasMany('survey', async: true)
+  messages: DS.hasMany('message')
+  surveys:  DS.hasMany('survey')
 
   latestMessage: (-> @get('messages.lastObject')).property('messages.@each')
 
@@ -13,7 +13,7 @@ Intimi.Conversation = DS.Model.extend
   appendMessage: (content, needToReply) ->
     self = @
 
-    message = @get('store').createRecord 'message', content: content, needToReply: needToReply, conversation: @
+    message = @get('messages').createRecord content: content, needToReply: needToReply
     message.save().then ->
       self.get('messages').pushObject(message)
       self.get('surveys').pushObject(message.get('survey'))
