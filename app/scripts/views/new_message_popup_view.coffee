@@ -8,8 +8,9 @@ Intimi.NewMessagePopupView = Ember.View.extend
   content: null
   needToReply: false
 
-  close: ->
-    @set 'isVisable', false
+  actions:
+    close: ->
+      @set 'isVisable', false
 
   didInsertElement: ->
     @$('.popup-interlocutors input').focus()
@@ -28,6 +29,6 @@ Intimi.NewMessagePopupView = Ember.View.extend
       content: null
       needToReply: false
 
-    @close()
+    @send('close')
 
 
