@@ -4,9 +4,11 @@ Intimi.ConversationsRoute = Ember.Route.extend
       Ember.RSVP.reject('Capital account not available')
 
   model: ->
-    @get('store').findAll('conversation')
+    @get('store').find('conversation', page: 1)
 
   actions:
+    loadMore: -> @get('controller').loadNextPage()
+
     error: ->
       @controllerFor('home').set('minsAccountAlertLevelUp', true)
       @transitionTo('/home')
