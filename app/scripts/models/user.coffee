@@ -16,9 +16,7 @@ Intimi.User = DS.Model.extend
 
   registerMinsAccount: ->
     $.post(Intimi.HOST + '/v1/mins_accounts/register').then (payload) =>
-      serializer = @get('store').serializerFor('minsAccount')
-      data = serializer.extract(@get('store'), Intimi.MinsAccount, payload, payload.mins_account.id, 'find')
-      @get('store').push('minsAccount', data)
+      @get('store').pushPayload('minsAccount', payload)
 
   changePassword: (oldPwd, newPwd, pwdConfirmation) ->
     $.ajax(
