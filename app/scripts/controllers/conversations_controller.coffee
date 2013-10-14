@@ -1,9 +1,13 @@
 Intimi.ConversationsController = Ember.ArrayController.extend
   currentPage: 1
 
+  sortProperties: ['latestMessage.createdAt']
+  sortAscending: false
+
   totalCount: (->
-    @get('store').metadataFor('conversation').total
-  ).property().volatile()
+    count = @get('store').metadataFor('conversation').total
+    if @get('model.length') > count then @get('model.length') else count
+  ).property('model.length')
 
   hasMore: (->
     @get('totalCount') > @get('model.length')

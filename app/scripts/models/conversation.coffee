@@ -13,4 +13,4 @@ Intimi.Conversation = DS.Model.extend
   appendMessage: (content, needToReply) ->
     message = @get('messages').createRecord content: content, needToReply: needToReply
     message.save().then =>
-      @get('surveys').addObject(message.get('survey'))
+      @get('store').find('conversation')
