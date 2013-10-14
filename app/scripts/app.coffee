@@ -1,7 +1,5 @@
 NotifierjsConfig.position = ["bottom", "right"]
 
-#Ember.LOG_BINDINGS = true
-
 Intimi = window.Intimi = Ember.Application.create
   LOG_TRANSITIONS: true
   HOST: 'http://localhost:3001'
