@@ -7,6 +7,13 @@ Intimi.ConversationController = Ember.ObjectController.extend
 
   currentMessagesPage: 1
 
+  sortedMessages: (->
+    Ember.ArrayProxy.extend(Ember.SortableMixin).create
+      content: @get('model.messages')
+      sortProperties: ['createdAt']
+      sortAscending: true
+  ).property('model.messages')
+
   messagesTotalCount: (->
     @get('store').metadataFor('message').total
   ).property().volatile()

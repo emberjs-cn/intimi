@@ -4,7 +4,7 @@ Intimi.Conversation = DS.Model.extend
   messages: DS.hasMany('message')
   surveys:  DS.hasMany('survey')
 
-  latestMessage: (-> @get('messages.lastObject')).property('messages.@each')
+  latestMessage: (-> @get('messages.firstObject')).property('messages.@each').volatile()
 
   notRepliedSurveys: (->
     @get('surveys').filter (survey) -> Ember.isEmpty(survey.get('attitude'))

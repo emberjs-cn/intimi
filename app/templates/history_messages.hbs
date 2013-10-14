@@ -3,7 +3,7 @@
     {{#if hasMoreMessages}}<a {{action 'loadMoreMessages'}}>加载更多</a>{{/if}}
   </div>
   <ul>
-    {{#each messages}}
+    {{#each sortedMessages}}
       <li {{bindAttr class='isOut:pull-right:pull-left'}}>
         <div {{bindAttr class=":alert isOut:alert-success:alert-info"}}>
           <p>{{content}}</p>
