@@ -1,2 +1,6 @@
 Intimi.Property = DS.Model.extend
-  property_parameters: DS.hasMany('Intimi.PropertyParameter')
+  name: DS.attr('string')
+  value: DS.attr('string')
+
+  vcard: DS.belongsTo('vcard')
+  propertyParameters: DS.hasMany('propertyParameter')
