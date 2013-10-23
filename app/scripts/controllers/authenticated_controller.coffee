@@ -59,14 +59,14 @@ Intimi.AuthenticatedController = Ember.Controller.extend Intimi.NewMessageMixin,
         text: '用户管理',
         roles: ['admin']
       }, {
-        icon: 'images/profile.png',
-        url: '#/settings',
-        text: '个人设置',
+        icon: 'images/address-book.png',
+        url: '#/vcards',
+        text: '通讯录',
         roles: ['admin', 'user']
       }, {
         icon: 'images/profile.png',
-        url: '#/vcards',
-        text: '通讯录',
+        url: '#/settings',
+        text: '个人设置',
         roles: ['admin', 'user']
       }]
     }],
