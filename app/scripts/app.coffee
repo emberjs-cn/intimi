@@ -4,6 +4,8 @@ Intimi = window.Intimi = Ember.Application.create
   LOG_TRANSITIONS: true
   HOST: 'http://localhost:3001'
 
+Intimi.Auth = Ember.Object.create()
+
 Intimi.ApplicationAdapter = DS.ActiveModelAdapter.extend
   host: Intimi.HOST
   namespace: 'v1'
