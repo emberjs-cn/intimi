@@ -8,7 +8,7 @@
     "moment": "2.1.0",
     "handlebars": "1.0.0",
     "select2": "3.4.1",
-    "ember": "1.0.0",
+    "ember": "1.1.1",
     "ember-data-shim": "1.0.0-beta.3",
     "ember-inkylike": "git@gitlab.menglifang.org:base/ember-inkylike.git",
     "ember-localstorage-adapter": "https://github.com/rpflorence/ember-localstorage-adapter.git",
