@@ -2,7 +2,7 @@ NotifierjsConfig.position = ["bottom", "right"]
 
 Intimi = window.Intimi = Ember.Application.create
   LOG_TRANSITIONS: true
-  HOST: 'http://localhost:3001'
+  HOST: 'http://intimi-api.dev'
 
 Intimi.Auth = Ember.Object.create()
 
