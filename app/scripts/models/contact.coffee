@@ -1,23 +1,18 @@
-Intimi.Vcard = DS.Model.extend
-  properties: DS.hasMany('property')
+Intimi.Contact = DS.Model.extend
+  title: DS.attr('string')
+  organization: DS.attr('string')
+  groups: DS.attr('string')
+  note: DS.attr('string')
 
-  name: (->
-    n = @get('properties').filterBy('name', 'N')
+  name: DS.belongsTo('name')
+  emails: DS.hasMany('email')
+  phones: DS.hasMany('phone')
+  faxes: DS.hasMany('fax')
+  addresses: DS.hasMany('address')
 
-    n && n.get('firstObject.value') || ''
-  ).property('properties.@each')
-
-  familyName: (->
-    @get('name').split(/;/)[0]
-  ).property('name')
-
-  givenName: (->
-    @get('name').split(/;/)[1]
-  ).property('name')
-
-  fullName: ( ->
-    '%@%@'.fmt(@get('familyName'), @get('givenName'))
-  ).property('familyName, givenName')
+  fullName: (->
+    '%@%@'.fmt @get('name.lastName'), @get('name.firstName')
+  ).property('name.firtName', 'name.lastName')
 
   isValidFamilyName: (name) ->
     @get('validFamilyNames').contains(name)

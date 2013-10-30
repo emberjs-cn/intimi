@@ -60,7 +60,7 @@ Intimi.AuthenticatedController = Ember.Controller.extend Intimi.NewMessageMixin,
         roles: ['admin']
       }, {
         icon: 'images/address-book.png',
-        url: '#/vcards',
+        url: '#/contacts',
         text: '通讯录',
         roles: ['admin', 'user']
       }, {

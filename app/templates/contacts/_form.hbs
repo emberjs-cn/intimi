@@ -1,0 +1,73 @@
+<form>
+  <div class="legend">基本信息</div>
+  <ul class="fields">
+    <li>
+      <div class="add-on">姓名</div>
+      <div class="field">
+        {{input type='text' value=fullName}}
+      </div>
+    </li>
+    {{#each phones}}
+      <li>
+        <div class="add-on">{{telType}}</div>
+        <div class="field">
+          {{input type='text' value=value}}
+        </div>
+      </li>
+    {{/each}}
+    {{#each emails}}
+      <li>
+        <div class="add-on">{{emailType}}</div>
+        <div class="field">
+          {{input type='text' value=value}}
+        </div>
+      </li>
+    {{/each}}
+    <li>
+      <div class="add-on">备注</div>
+      <div class="field">
+        {{input type='text' value=memo}}
+      </div>
+    </li>
+    <li>
+      <div class="add-on">分组</div>
+      <div class="field">
+        {{input type='text' value=group}}
+      </div>
+    </li>
+  </ul>
+</form>
+
+<form>
+  <div class="legend">更多选项</div>
+  <ul class="fields">
+    {{#each addresses}}
+      <li>
+        <div class="add-on">{{addressType}}</div>
+        <div class="field">
+          {{input type='text' value=value}}
+        </div>
+      </li>
+    {{/each}}
+    {{#each faxes}}
+      <li>
+        <div class="add-on">{{telType}}</div>
+        <div class="field">
+          {{input type='text' value=value}}
+        </div>
+      </li>
+    {{/each}}
+    <li>
+      <div class="add-on">头衔</div>
+      <div class="field">
+        {{input type='text' value=title}}
+      </div>
+    </li>
+    <li>
+      <div class="add-on">单位</div>
+      <div class="field">
+        {{input type='text' value=organization}}
+      </div>
+    </li>
+  </ul>
+</form>
