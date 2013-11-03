@@ -9,7 +9,7 @@
     "handlebars": "1.0.0",
     "select2": "3.4.1",
     "ember": "1.1.2",
-    "ember-data-shim": "1.0.0-beta.3",
+    "ember-data-shim": "https://github.com/emberjs-cn/ember-data-shim.git#canary",
     "ember-inkylike": "git@gitlab.menglifang.org:base/ember-inkylike.git",
     "ember-localstorage-adapter": "https://github.com/rpflorence/ember-localstorage-adapter.git",
     "notifier.js": "https://github.com/Srirangan/notifer.js.git#ef35e359402c6d713b9c16cb3b9bb7e54b1a0ae1",
