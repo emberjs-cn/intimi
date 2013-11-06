@@ -1,0 +1,31 @@
+.fileinput-button
+  position: relative
+  overflow: hidden
+
+#fileupload
+  position: absolute
+  top: 0
+  right: 0
+  margin: 0
+  opacity: 0
+  -ms-filter: 'alpha(opacity=0)'
+  direction: ltr
+  cursor: pointer
+
+.fileupload-progress, .fileupload-error
+  position: absolute
+  top: 60px
+  right: 0
+  width: 200px
+  padding: 0 20px
+  text-align: center
+  display: none
+
+.fileupload-progress
+  background-color: #45cc49
+
+.fileupload-error
+  background-color: red
+
+.fileupload-error:hover
+  display: none
