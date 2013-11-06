@@ -24,6 +24,7 @@ $.ajaxPrefilter (options, originalOptions, jqXHR) ->
 
 # Order and include as you please.
 require('scripts/mixins/*')
+require('scripts/components/*')
 require('scripts/serializers/*')
 require('scripts/auth')
 require('scripts/helpers/*')
