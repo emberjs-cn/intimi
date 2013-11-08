@@ -1,22 +1,27 @@
 Intimi.FileUploadComponent = Ember.Component.extend
+  name: '上传文件'
   url: null
   progress: 0
   errorMessage: null
 
+  done: ->
+    @$('.fileupload-progress').fadeOut()
+
+  error: ->
+
   didInsertElement: ->
-    Ember.$('#fileupload').fileupload
+    @$('#fileupload').fileupload
       url: @get('url')
       progressall: (e, data) =>
-        Ember.$('.fileupload-progress').fadeIn()
+        @$('.fileupload-progress').fadeIn()
         progress = parseInt(data.loaded / data.total * 100, 10)
         @set('progress', progress)
-      done: ->
-        Ember.$('.fileupload-progress').fadeOut()
+      done: => @done()
       error: (jqXHR, textStatus, errorThrown) =>
         @set('errorMessage', '上传失败')
         if jqXHR.status == 415
-          @set('errorMessage', '仅支持csv、xls、xlsx类型')
+          @set('errorMessage', '上传的文件类型不支持')
 
-        Ember.$('.fileupload-progress').fadeOut()
-        Ember.$('.fileupload-error').fadeIn()
-        Ember.$('.fileupload-error').delay(3000).fadeOut()
+        @$('.fileupload-progress').fadeOut()
+        @$('.fileupload-error').fadeIn()
+        @$('.fileupload-error').delay(3000).fadeOut()
