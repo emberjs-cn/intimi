@@ -8,6 +8,10 @@ Intimi.Message = DS.Model.extend
   conversation: DS.belongsTo('conversation')
   survey: DS.belongsTo('survey')
 
+  sender: (->
+    if @get('isOut') then '我' else @get('conversation.contact.name.fullName')
+  ).property('content', 'conversation.contact.name.fullName')
+
   isIn: (->
     @get('direction') == 'in'
   ).property('direction')
