@@ -9,7 +9,7 @@ Intimi.Message = DS.Model.extend
   survey: DS.belongsTo('survey')
 
   sender: (->
-    if @get('isOut') then '我' else @get('conversation.contact.name.fullName')
+    if @get('isOut') then '我' else ''
   ).property('content', 'conversation.contact.name.fullName')
 
   isIn: (->
