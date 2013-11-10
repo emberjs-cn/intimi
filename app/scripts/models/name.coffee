@@ -9,15 +9,16 @@ Intimi.Name = DS.Model.extend
 
   fullName: ((key, value) ->
     if arguments.length > 1
-      nameParts = @parseFullName(value)
+      nameParts = Intimi.Name.parseFullName(value)
       @set('lastName', nameParts[0])
       @set('firstName', nameParts[1])
 
     '%@%@'.fmt @get('lastName') || '', @get('firstName') || ''
   ).property('firtName', 'lastName')
 
+Intimi.Name.reopenClass
   isValidFamilyName: (name) ->
-    @get('validFamilyNames').contains(name)
+    Intimi.Name.validFamilyNames.contains(name)
 
   validFamilyNames: [
     "赵", "钱", "孙", "李", "周", "吴", "郑", "王", "冯", "陈", "褚", "卫", "蒋", "沈", "韩", "杨", "朱", "秦", "尤", "许", "何", "吕", "施", "张",
@@ -68,7 +69,6 @@ Intimi.Name = DS.Model.extend
     "富察", "费莫", "蹇", "称", "诺", "来", "多", "繁", "戊", "朴", "回", "毓"
   ]
 
-  # private
   parseFullName: (fullName) ->
     lastName = ''
     firstName = ''
@@ -77,6 +77,6 @@ Intimi.Name = DS.Model.extend
       lastName = fullName.slice(0, i)
       firstName = fullName.slice(i, fullName.length)
 
-      break if @isValidFamilyName(lastName)
+      break if Intimi.Name.isValidFamilyName(lastName)
 
     [lastName, firstName]
