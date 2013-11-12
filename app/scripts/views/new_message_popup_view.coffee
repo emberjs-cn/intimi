@@ -21,7 +21,7 @@ Intimi.NewMessagePopupView = Ember.View.extend
     @$('.popup-footer a').tooltip()
 
     @$('#excel-msg-upload').fileupload
-      url: Intimi.HOST + '/v1/conversations/upload'
+      url: Intimi.HOST + '/v1/sms_messages/upload'
       progressall: (e, data) =>
         @$('.fileupload-progress').fadeIn()
         progress = parseInt(data.loaded / data.total * 100, 10)
@@ -46,15 +46,22 @@ Intimi.NewMessagePopupView = Ember.View.extend
     event.preventDefault()
     event.stopPropagation()
 
-    return Notifier.error '请填写联系人' unless @get('interlocutors')
     return Notifier.error '请填写消息内容' unless @get('content')
 
-    @get('controller').send 'sendMessage', @get('interlocutors'), @get('content'), @get('needToReply')
+    if @get('inBatchMode')
+      @get('controller').send 'sendMessageInBatchMode', @get('content'), @get('needToReply')
+    else
+      return Notifier.error '请填写联系人' unless @get('interlocutors')
+
+      @get('controller').send 'sendMessage', @get('interlocutors'), @get('content'), @get('needToReply')
 
     @setProperties
       interlocutors: null
       content: null
       needToReply: false
+      total: 0
+      titles: []
+      inBatchMode: false
 
     @send('close')
 
