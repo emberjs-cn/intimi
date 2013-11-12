@@ -8,6 +8,10 @@ Intimi.NewMessagePopupView = Ember.View.extend
   content: null
   needToReply: false
 
+  total: 0
+  titles: []
+  inBatchMode: false
+
   actions:
     close: ->
       @set 'isVisable', false
@@ -17,12 +21,17 @@ Intimi.NewMessagePopupView = Ember.View.extend
     @$('.popup-footer a').tooltip()
 
     @$('#excel-msg-upload').fileupload
-      url: '/v1/conversations/upload'
+      url: Intimi.HOST + '/v1/conversations/upload'
       progressall: (e, data) =>
         @$('.fileupload-progress').fadeIn()
         progress = parseInt(data.loaded / data.total * 100, 10)
         @set('progress', progress)
-      done: =>
+      done: (e, data) =>
+        if data.result.total > 0
+          @set('inBatchMode', true)
+          @set('total', data.result.total)
+          @set('titles', data.result.titles)
+
         @$('.fileupload-progress').fadeOut()
       error: (jqXHR, textStatus, errorThrown) =>
         @set('errorMessage', '上传失败')

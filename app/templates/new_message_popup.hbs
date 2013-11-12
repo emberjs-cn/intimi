@@ -1,9 +1,20 @@
 <form>
   <div class="popup-header">发送即时通知<i class="icon-remove pull-right" {{action 'close' target=view}}></i></div>
 
+  {{#if view.inBatchMode}}
+  <div>
+    共计{{view.total}}位联系人
+  </div>
+  <ul class="titles">
+    {{#each view.titles}}
+    <li>{{this}}</li>
+    {{/each}}
+  </ul>
+  {{else}}
   <div class="popup-interlocutors">
     {{view Intimi.InterlocutorSelection valueBinding=view.interlocutors placeholder='联系人'}}
   </div>
+  {{/if}}
 
   <div class="popup-content">
     {{textarea value=view.content class='input-plain' placeholder='通知内容' rows=14}}
