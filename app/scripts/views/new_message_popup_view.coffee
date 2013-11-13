@@ -10,11 +10,19 @@ Intimi.NewMessagePopupView = Ember.View.extend
 
   total: 0
   titles: []
+  filePath: null
   inBatchMode: false
 
   actions:
     close: ->
       @set 'isVisable', false
+
+  changeHeight: (->
+    if @get('inBatchMode')
+      $('.new-message-popup').height(472)
+    else
+      $('.new-message-popup').height(400)
+  ).observes('inBatchMode')
 
   didInsertElement: ->
     @$('.popup-interlocutors input').focus()
@@ -31,6 +39,7 @@ Intimi.NewMessagePopupView = Ember.View.extend
           @set('inBatchMode', true)
           @set('total', data.result.total)
           @set('titles', data.result.titles)
+          @set('filePath', data.result.file_path)
 
         @$('.fileupload-progress').fadeOut()
       error: (jqXHR, textStatus, errorThrown) =>
@@ -49,7 +58,7 @@ Intimi.NewMessagePopupView = Ember.View.extend
     return Notifier.error '请填写消息内容' unless @get('content')
 
     if @get('inBatchMode')
-      @get('controller').send 'sendMessageInBatchMode', @get('content'), @get('needToReply')
+      @get('controller').send 'sendMessageInBatchMode', @get('content'), @get('filePath'), @get('needToReply')
     else
       return Notifier.error '请填写联系人' unless @get('interlocutors')
 
@@ -61,6 +70,7 @@ Intimi.NewMessagePopupView = Ember.View.extend
       needToReply: false
       total: 0
       titles: []
+      filePath: null
       inBatchMode: false
 
     @send('close')

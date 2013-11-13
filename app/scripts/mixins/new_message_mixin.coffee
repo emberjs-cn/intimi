@@ -2,6 +2,10 @@ Intimi.NewMessageMixin = Ember.Mixin.create
   newMessagePopupVisible: false
 
   actions:
+    appendTitle: (title) ->
+      origin = $('.new-message-popup textarea').val()
+      $('.new-message-popup textarea').val(origin + '%{%@}'.fmt(title))
+
     sendMessage: (interlocutorsString, content, needToReply = false) ->
       interlocutors = interlocutorsString.split(',')
 
@@ -16,6 +20,6 @@ Intimi.NewMessageMixin = Ember.Mixin.create
             conversation.appendMessage(content, needToReply)
             self.transitionToRoute('conversation', conversation)
 
-    sendMessageInBatchMode: (content, needToReply = false) ->
-      $.post(Intimi.HOST + '/v1/sms_messages/batch_create', content: content, need_to_reply: needToReply).then =>
+    sendMessageInBatchMode: (content, filePath, needToReply = false) ->
+      $.post(Intimi.HOST + '/v1/sms_messages/batch_create', content: content, need_to_reply: needToReply, file_path: filePath).then =>
         @transitionToRoute('conversations')
