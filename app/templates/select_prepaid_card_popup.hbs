@@ -7,11 +7,11 @@
       </div>
       <form>
         <div class="modal-body">
-          {{#view Intimi.RadioButtonGroup valueBinding="view.selectedPrepaidCardId" class="prepaid-cards" name="prepaidCardId"}}
+          {{#view Intimi.RadioButtonGroup value=view.selectedPrepaidCardId class="prepaid-cards" name="prepaidCardId"}}
             {{#each prepaidCards}}
               <div>
                 <label>
-                  {{view view.RadioButton valueBinding=id}}{{name}}
+                  {{view view.RadioButton value=id}}{{name}}
                 </label>
               </div>
             {{/each}}
