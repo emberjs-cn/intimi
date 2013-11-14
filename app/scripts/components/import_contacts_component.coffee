@@ -10,7 +10,7 @@ Intimi.ImportContactsComponent = Ember.Component.extend
 
   didInsertElement: ->
     @$('#fileupload').fileupload
-      url: @get('url')
+      url: Intimi.HOST + @get('url')
       progressall: (e, data) =>
         @$('.fileupload-progress').fadeIn()
         progress = parseInt(data.loaded / data.total * 100, 10)
