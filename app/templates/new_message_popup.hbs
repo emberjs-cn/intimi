@@ -12,12 +12,12 @@
   </ul>
   {{else}}
   <div class="popup-interlocutors">
-    {{view Intimi.InterlocutorSelection value=view.interlocutors placeholder='联系人'}}
+    {{view Intimi.InterlocutorSelection value=view.interlocutors placeholder='只支持向通讯录中的联系人发送短信'}}
   </div>
   {{/if}}
 
   <div class="popup-content">
-    {{textarea value=view.content class='input-plain' placeholder='通知内容' rows=14}}
+    {{textarea value=view.content class='input-plain' placeholder='通知内容超过62个字将自动拆分为多条短信发送。' rows=14}}
   </div>
 
   <div class="popup-footer">
