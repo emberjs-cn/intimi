@@ -22,6 +22,9 @@
         </li>
       {{/each}}
     </ul>
+    <div class="load-more">
+      已加载{{model.length}}条记录，共{{totalCount}}条。{{#if hasMore}}<a {{action 'loadMore'}}>加载更多</a>{{/if}}
+    </div>
   </div>
 
   <div class="right">
