@@ -22,4 +22,5 @@ Intimi.NewMessageMixin = Ember.Mixin.create
 
     sendMessageInBatchMode: (content, filePath, needToReply = false) ->
       $.post(Intimi.HOST + '/v1/sms_messages/batch_create', content: content, need_to_reply: needToReply, file_path: filePath).then =>
+        @get('store').find('conversation')
         @transitionToRoute('conversations')
