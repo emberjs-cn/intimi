@@ -1,8 +1,12 @@
 NotifierjsConfig.position = ["bottom", "right"]
 
+Ember.RSVP.configure 'onerror', (error) ->
+  Ember.Logger.assert(false, error)
+
+
 Intimi = window.Intimi = Ember.Application.create
   LOG_TRANSITIONS: true
-  HOST: 'http://intimi-api.dev'
+  HOST: 'http://localhost:9292'
 
 Intimi.Auth = Ember.Object.create()
 
@@ -24,6 +28,7 @@ $.ajaxPrefilter (options, originalOptions, jqXHR) ->
 
 # Order and include as you please.
 require('scripts/mixins/*')
+require('scripts/pollsters/*')
 require('scripts/components/*')
 require('scripts/serializers/*')
 require('scripts/auth')
