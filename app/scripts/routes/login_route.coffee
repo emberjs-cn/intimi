@@ -13,6 +13,7 @@ Intimi.LoginRoute = Ember.Route.extend
 
         applicationController.login()
 
+        transition = applicationController.get('savedTransition')
         # if the user was going somewhere, send them along, otherwise
         # default to `/home`
         if transition && transition.targetName != 'authenticated.index'

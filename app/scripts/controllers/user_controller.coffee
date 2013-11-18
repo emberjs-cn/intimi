@@ -4,10 +4,9 @@ Intimi.UserController = Ember.ObjectController.extend
       @get('model').rollback() if @get('model.isDirty')
 
     save: ->
-      self = @
-      @get('model').save().then ->
+      @get('model').save().then =>
         Notifier.success('保存用户成功')
-        self.transitionToRoute('user', self.get('model'))
+        @transitionToRoute('user', @get('model'))
       , -> Notifier.error('保存用户失败')
 
     remove: ->
