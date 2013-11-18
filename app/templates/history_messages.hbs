@@ -1,6 +1,9 @@
 <div class="content">
+  <div class="load-more">
+    {{#if hasMoreMessages}}<a {{action 'loadMoreMessages'}}>加载更多</a>{{/if}}
+  </div>
   <ul>
-    {{#each messages}}
+    {{#each sortedMessages}}
       <li {{bindAttr class='isOut:pull-right:pull-left'}}>
         <div {{bindAttr class=":alert isOut:alert-success:alert-info"}}>
           <p>{{content}}</p>
@@ -16,7 +19,7 @@
     {{input value=view.newMessageContent class='pull-left'}}
     <button class="btn inline" type="submit">发送</button>
     <label class="checkbox inline">
-      {{input checked=view.needAReply type='checkbox'}} 需回复
+      {{input checked=view.needAReply type='checkbox'}} 需确认
     </label>
   </form>
 </footer>

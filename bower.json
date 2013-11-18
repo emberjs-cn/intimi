@@ -1,6 +1,6 @@
 {
   "name": "intimi",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "dependencies": {
     "jquery": "~1.9.1",
     "font-awesome": "3.2.1",
@@ -8,13 +8,13 @@
     "moment": "2.1.0",
     "handlebars": "1.0.0",
     "select2": "3.4.1",
-    "ember-auth": "https://github.com/heartsentwined/ember-auth.git",
-    "ember": "1.0.0",
+    "ember": "1.1.2",
     "ember-data-shim": "https://github.com/emberjs-cn/ember-data-shim.git#canary",
     "ember-inkylike": "git@gitlab.menglifang.org:base/ember-inkylike.git",
     "ember-localstorage-adapter": "https://github.com/rpflorence/ember-localstorage-adapter.git",
     "notifier.js": "https://github.com/Srirangan/notifer.js.git#ef35e359402c6d713b9c16cb3b9bb7e54b1a0ae1",
-    "Faker": "0.5.11"
+    "Faker": "0.5.11",
+    "jquery-file-upload": "9.0.1"
   },
   "devDependencies": {
     "ember-mocha-adapter": "0.1.1"

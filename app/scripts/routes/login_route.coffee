@@ -5,22 +5,19 @@ Intimi.LoginRoute = Ember.Route.extend
       username = loginController.get('username')
       password = loginController.get('password')
 
-      @get('store').find('user', username: username).then (users) =>
-        return Notifier.error('您输入的用户名不存在') if Ember.isEmpty(users)
-
-        user = users.get('firstObject')
-        return Notifier.error('您输入的密码不正确') if user.get('password') != password
-
-        localStorage.currentUsername = username
-        Intimi.Auth.set('user', user)
+      $.post(Intimi.HOST + '/users/sign_in.json', user: { login: username, password: password }).then (payload) =>
+        localStorage.setItem('intimi:currentUser', JSON.stringify(payload.user))
 
         applicationController = @controllerFor('application')
+        transition = applicationController.get('savedTransition')
+
         applicationController.login()
 
         transition = applicationController.get('savedTransition')
         # if the user was going somewhere, send them along, otherwise
         # default to `/home`
-        if transition && transition.get('targetName') != 'authenticated.index'
+        if transition && transition.targetName != 'authenticated.index'
           transition.retry()
         else
           @transitionTo('home')
+      , -> Notifier.error('您输入的用户名或密码不正确')

@@ -19,7 +19,6 @@ Intimi.UserController = Ember.ObjectController.extend
         @transitionToRoute('users')
       , -> Notifier.error('删除用户失败')
 
-
     cancel: ->
       @get('model').rollback()
       @transitionToRoute('users')

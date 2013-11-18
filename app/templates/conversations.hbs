@@ -11,25 +11,28 @@
 <div class="content">
   <div class="left">
     <ul class="conversations">
-      {{#each model}}
+      {{#each controller}}
         <li>
           {{#linkTo 'conversation' this}}
             <h3>
-              <i class="icon-user"></i> {{interlocutor}}
+              <i class="icon-user"></i> {{receiver}}
               <span class="created-at pull-right">{{timeAgo latestMessage.createdAt}}</span>
             </h3>
             <div class="summary clearfix">
               <div class="latest-message">
-                <span class="message">{{latestMessage.id}}：{{latestMessage.content}}</span>
+                <span class="message">{{latestMessage.sender}}：{{latestMessage.content}}</span>
               </div>
               <div class="counts pull-right">
-                <span class="surveys-count label label-important">调查 ({{notRepliedSurveys.length}})</span>
+                <span class="surveys-count label label-important">待确认 ({{notRepliedSurveys.length}})</span>
               </div>
             </div>
           {{/linkTo}}
         </li>
       {{/each}}
     </ul>
+    <div class="load-more">
+      已加载{{model.length}}条记录，共{{totalCount}}条。{{#if hasMore}}<a {{action 'loadMore'}}>加载更多</a>{{/if}}
+    </div>
   </div>
 
   <div class="right">

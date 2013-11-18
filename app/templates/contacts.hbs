@@ -1,0 +1,33 @@
+<div class="inkylike-toolbar">
+  <ul class="toolbar-actions pull-left">
+    <li>
+      {{#linkTo 'contacts.new'}}
+        <i class="icon-plus icon-large"></i>
+        添加联系人
+      {{/linkTo}}
+    </li>
+    <li>
+      {{import-contacts url='/v1/contacts/import' store=store}}
+    </li>
+  </ul>
+</div>
+<div class="content">
+  <div class="left left-small">
+    <ul class="contacts">
+      {{#each model}}
+        <li>
+          {{#linkTo 'contact' this}}
+            <div class="name"><i class="icon-user"></i> {{name.fullName}}</div>
+          {{/linkTo}}
+        </li>
+      {{/each}}
+    </ul>
+    <div class="load-more">
+      已加载{{model.length}}条记录，共{{totalCount}}条。{{#if hasMore}}<a {{action 'loadMore'}}>加载更多</a>{{/if}}
+    </div>
+  </div>
+
+  <div class="right">
+    {{outlet}}
+  </div>
+</div>

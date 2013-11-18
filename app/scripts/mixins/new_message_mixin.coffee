@@ -2,17 +2,25 @@ Intimi.NewMessageMixin = Ember.Mixin.create
   newMessagePopupVisible: false
 
   actions:
+    appendTitle: (title) ->
+      origin = $('.new-message-popup textarea').val()
+      $('.new-message-popup textarea').val(origin + '%{%@}'.fmt(title))
+
     sendMessage: (interlocutorsString, content, needToReply = false) ->
       interlocutors = interlocutorsString.split(',')
 
-      store = @get('store')
+      self = @
       interlocutors.forEach (interlocutor) ->
-        store.find('conversation', interlocutor: interlocutor).then (conversations) ->
+        self.get('store').find('conversation', q: { interlocutor_eq: interlocutor }).then (conversations) ->
           conversation = conversations.get('firstObject')
           return conversation.appendMessage(content, needToReply) if conversation
 
-          conversation = store.createRecord 'conversation',
-            interlocutor: interlocutor
-            minsAccount: Intimi.Auth.get('user.minsAccount')
+          conversation = self.get('store').createRecord 'conversation', interlocutor: interlocutor
+          conversation.save().then ->
+            conversation.appendMessage(content, needToReply)
+            self.transitionToRoute('conversation', conversation)
 
-          conversation.save().then -> conversation.appendMessage(content, needToReply)
+    sendMessageInBatchMode: (content, filePath, needToReply = false) ->
+      $.post(Intimi.HOST + '/v1/sms_messages/batch_create', content: content, need_to_reply: needToReply, file_path: filePath).then =>
+        @get('store').find('conversation')
+        @transitionToRoute('conversations')
