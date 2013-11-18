@@ -1,0 +1,20 @@
+<ul class="toolbar-actions pull-toolbar">
+  <li {{action 'save'}}>
+    <i class="icon-save icon-large"></i>
+    保存
+  </li>
+  <li {{action 'revertChanges'}}>
+    <i class="icon-undo icon-large"></i>
+    取消修改
+  </li>
+  <li {{action 'remove'}}>
+    <i class="icon-remove icon-large"></i>
+    删除
+  </li>
+</ul>
+
+<h2>
+  编辑联系人
+</h2>
+
+{{partial 'contacts/form'}}

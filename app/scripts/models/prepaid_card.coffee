@@ -1,2 +1,3 @@
 Intimi.PrepaidCard = DS.Model.extend
-  price: DS.attr('number')
+  name:  DS.attr('string')
+  value: DS.attr('number')

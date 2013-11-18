@@ -1,15 +1,35 @@
 .new-message-popup
   z-index: 99
-  width: 400px
+  width: 600px
+  height: 400px
   position: absolute
   right: 5px
   bottom: 1px
   border: 1px solid #ccc
   box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 6px 0px
+  background: whitesmoke
 
   form
     padding: 0
     margin: 0
+
+    .tips
+      height: 20px
+      padding: 10px
+
+    ul.titles
+      list-style: none
+      height: 62px
+      margin-bottom: 0
+      li
+        display: inline-block
+        width: 70px
+        margin-bottom: 5px
+        cursor: pointer
+        padding: 3px
+        border: 1px solid whitesmoke
+      li:hover
+        border: 1px solid #CCC
 
   .input-plain
     border: 0
@@ -35,6 +55,9 @@
     border-bottom: 1px solid #ccc
     overflow-x: hidden
 
+    textarea
+      width: 100%
+
   .popup-footer
     padding: 5px 10px
     background-color: #f5f5f5
@@ -42,3 +65,22 @@
     label
       padding-top: 0
       margin-left: 10px
+
+    a
+      color: black
+      line-height: 20px
+      margin-left: 20px
+      padding: 5px
+
+    a:hover
+      border: 1px solid #CCC
+
+#excel-msg-upload
+  position: inherit
+  top: 0
+  margin: 0
+  margin-left: -20px
+  left: 0
+  opacity: 0
+  -ms-filter: "alpha(opacity=0)"
+  width: 20px

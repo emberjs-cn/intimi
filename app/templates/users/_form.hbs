@@ -3,7 +3,7 @@
     <li>
       <div class="add-on">用户名</div>
       <div class="field">
-        {{input type='text' value=name}}
+        {{input type='text' value=username}}
       </div>
     </li>
     <li>
@@ -27,7 +27,7 @@
     <li>
       <div class="add-on">角色</div>
       <div class="field">
-        {{view Ember.Select contentBinding='availableRoles' valueBinding=roles}}
+        {{view Ember.Select content=availableRoles value=roles}}
       </div>
     </li>
   </ul>

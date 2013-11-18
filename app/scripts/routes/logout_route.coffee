@@ -1,4 +1,6 @@
 Intimi.LogoutRoute = Ember.Route.extend
   setupController: ->
-    @controllerFor('application').logout()
-    @transitionTo('login')
+    $.ajax(type: 'DELETE', url: Intimi.HOST + '/users/sign_out').then =>
+      @controllerFor('application').logout()
+      @transitionTo('login')
+    , -> Notifier.error('注销失败')

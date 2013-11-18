@@ -14,5 +14,5 @@ Intimi.PasswordController = Ember.ObjectController.extend
         @get('passwordConfirmation')
       ).then (successMsg) =>
         Notifier.success('修改密码成功')
-        @revertChanges()
-      , (errorMsg) -> Notifier.error(errorMsg)
+        @send('revertChanges')
+      , -> Notifier.error('修改密码失败')

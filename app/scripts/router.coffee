@@ -18,3 +18,7 @@ Intimi.Router.map ->
     @resource 'users', ->
       @route 'new'
       @resource 'user', path: '/:user_id'
+
+    @resource 'contacts', ->
+      @route 'new'
+      @resource 'contact', path: '/:contact_id'
